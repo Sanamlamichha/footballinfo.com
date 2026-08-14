@@ -4,7 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ballon d'Or Winners - Male Football</title>
+    <meta name="theme-color" content="#0a0a0d">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --void: #0a0a0d;
+            --plaque: #17151b;
+            --plaque-2: #1e1b23;
+            --gold-deep: #8a6b1f;
+            --gold: #d4af37;
+            --gold-bright: #f4d35e;
+            --cream: #f3ead9;
+            --muted: #a89a6e;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,8 +27,14 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Inter', -apple-system, sans-serif;
+            color: var(--cream);
+            background-color: var(--void);
+            background-image:
+                radial-gradient(ellipse 900px 520px at 50% -8%, rgba(212, 175, 55, 0.20), transparent 60%),
+                radial-gradient(ellipse 700px 460px at 100% 100%, rgba(212, 175, 55, 0.09), transparent 65%),
+                radial-gradient(ellipse 500px 350px at 0% 60%, rgba(212, 175, 55, 0.06), transparent 65%);
+            background-attachment: fixed;
             min-height: 100vh;
             padding: 20px;
         }
@@ -25,19 +46,40 @@
 
         header {
             text-align: center;
-            color: white;
             margin-bottom: 40px;
+            padding-top: 10px;
         }
 
         header h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+            font-size: 3.2em;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            background: linear-gradient(180deg, #fbeec2 0%, var(--gold-bright) 35%, var(--gold) 65%, var(--gold-deep) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            filter: drop-shadow(0 2px 18px rgba(212, 175, 55, 0.35));
+        }
+
+        .golden-ball {
+            display: inline-block;
+            width: 0.78em;
+            height: 0.78em;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 28%, #fff6d5 0%, var(--gold-bright) 22%, var(--gold) 52%, var(--gold-deep) 78%, #3d2f0d 100%);
+            box-shadow: 0 0 22px rgba(244, 211, 94, 0.55), inset -3px -3px 8px rgba(0, 0, 0, 0.45);
+            vertical-align: -0.06em;
+            margin-right: 0.18em;
         }
 
         header p {
-            font-size: 1.2em;
-            opacity: 0.9;
+            font-size: 0.95em;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            font-weight: 600;
         }
 
         .search-section {
@@ -50,20 +92,32 @@
 
         .search-section input,
         .search-section select {
-            padding: 12px 20px;
+            padding: 12px 22px;
             font-size: 1em;
-            border: none;
-            border-radius: 25px;
-            background: white;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            font-family: 'Inter', sans-serif;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 999px;
+            background: var(--plaque);
+            color: var(--cream);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.45);
             transition: all 0.3s ease;
+        }
+
+        .search-section input::placeholder {
+            color: #6f6858;
+        }
+
+        .search-section select option {
+            background: var(--plaque);
+            color: var(--cream);
         }
 
         .search-section input:focus,
         .search-section select:focus {
             outline: none;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            border-color: var(--gold-bright);
+            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.5), 0 0 0 3px rgba(212, 175, 55, 0.2);
         }
 
         .search-section input {
@@ -82,22 +136,32 @@
         }
 
         .stat-card {
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
+            background: linear-gradient(180deg, var(--plaque-2), var(--plaque));
+            border: 1px solid rgba(212, 175, 55, 0.22);
+            border-top: 3px solid var(--gold);
+            padding: 22px 20px;
+            border-radius: 10px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5);
         }
 
         .stat-card h3 {
-            color: #667eea;
-            font-size: 2.5em;
-            margin-bottom: 5px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+            font-size: 2.6em;
+            background: linear-gradient(180deg, var(--gold-bright), var(--gold) 60%, var(--gold-deep));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 6px;
         }
 
         .stat-card p {
-            color: #666;
-            font-size: 0.95em;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.78em;
+            font-weight: 600;
         }
 
         .winners-grid {
@@ -108,61 +172,97 @@
         }
 
         .winner-card {
-            background: white;
-            border-radius: 15px;
+            background: linear-gradient(180deg, var(--plaque-2), var(--plaque));
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            transition: all 0.35s ease;
             cursor: pointer;
         }
 
+        .winner-card::before {
+            content: '';
+            display: block;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold-bright), var(--gold) 50%, var(--gold-bright), transparent);
+        }
+
         .winner-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(-8px);
+            border-color: rgba(212, 175, 55, 0.55);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6), 0 0 34px rgba(212, 175, 55, 0.22);
+        }
+
+        .winner-card:focus-visible {
+            outline: 2px solid var(--gold-bright);
+            outline-offset: 3px;
         }
 
         .card-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 20px;
+            background: radial-gradient(ellipse at 50% 0%, rgba(212, 175, 55, 0.14), transparent 70%);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+            color: var(--cream);
+            padding: 22px 20px 14px;
             text-align: center;
         }
 
         .card-header .year {
-            font-size: 2.5em;
-            font-weight: bold;
-            margin-bottom: 5px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 2.4em;
+            letter-spacing: 0.5px;
+            background: linear-gradient(180deg, #f8e39a, var(--gold) 55%, var(--gold-deep));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 4px;
         }
 
         .card-header .rank {
-            font-size: 0.9em;
-            opacity: 0.9;
+            font-size: 0.78em;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .card-header .rank::before {
+            content: '';
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 30%, #fff6d5, var(--gold-bright) 45%, var(--gold-deep) 100%);
+            box-shadow: 0 0 6px rgba(244, 211, 94, 0.7);
+            margin-right: 6px;
+            vertical-align: middle;
         }
 
         .card-body {
-            padding: 20px;
+            padding: 20px 22px 24px;
         }
 
         .card-body .player-name {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #f8f2e4;
+            margin-bottom: 14px;
         }
 
         .card-body .info {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 4px;
             font-size: 0.95em;
-            color: #666;
         }
 
         .info-row {
             display: flex;
             justify-content: space-between;
-            padding: 5px 0;
-            border-bottom: 1px solid #eee;
+            padding: 7px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.14);
         }
 
         .info-row:last-child {
@@ -171,31 +271,38 @@
 
         .label {
             font-weight: 600;
-            color: #667eea;
+            color: #c9a84c;
+            text-transform: uppercase;
+            font-size: 0.78em;
+            letter-spacing: 0.8px;
         }
 
         .value {
             text-align: right;
+            color: #cfc6b0;
         }
 
         .no-results {
             text-align: center;
             padding: 40px;
-            background: white;
+            background: linear-gradient(180deg, var(--plaque-2), var(--plaque));
+            border: 1px solid rgba(212, 175, 55, 0.2);
             border-radius: 15px;
-            color: #666;
+            color: var(--muted);
         }
 
         .decade-section {
-            background: white;
+            background: linear-gradient(180deg, var(--plaque-2), var(--plaque));
+            border: 1px solid rgba(212, 175, 55, 0.2);
             border-radius: 15px;
             padding: 30px;
             margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
         }
 
         .decade-section h2 {
-            color: #667eea;
+            font-family: 'Playfair Display', serif;
+            color: var(--gold-bright);
             margin-bottom: 20px;
             font-size: 1.8em;
         }
@@ -208,25 +315,25 @@
 
         .decade-winner-item {
             padding: 15px;
-            background: #f8f9fa;
-            border-left: 4px solid #667eea;
+            background: rgba(212, 175, 55, 0.06);
+            border-left: 4px solid var(--gold);
             border-radius: 8px;
         }
 
         .decade-winner-item .year {
             font-weight: bold;
-            color: #667eea;
+            color: var(--gold-bright);
         }
 
         .decade-winner-item .name {
-            color: #333;
+            color: var(--cream);
             margin-top: 5px;
             font-size: 0.95em;
         }
 
         @media (max-width: 768px) {
             header h1 {
-                font-size: 2em;
+                font-size: 2.1em;
             }
 
             .search-section {
@@ -242,26 +349,34 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            .winner-card,
+            .search-section input,
+            .search-section select {
+                transition: none;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>⚽ Ballon d'Or Winners</h1>
+            <h1><span class="golden-ball" aria-hidden="true"></span>Ballon d'Or Winners</h1>
             <p>Complete History of Male Football's Prestigious Award</p>
         </header>
 
         <div class="stats">
             <div class="stat-card">
-                <h3 id="total-winners">70+</h3>
+                <h3 id="total-winners">70</h3>
                 <p>Total Award Years</p>
             </div>
             <div class="stat-card">
-                <h3 id="unique-winners">60+</h3>
+                <h3 id="unique-winners">47</h3>
                 <p>Unique Winners</p>
             </div>
             <div class="stat-card">
-                <h3 id="most-wins">5</h3>
+                <h3 id="most-wins">8</h3>
                 <p>Maximum Wins</p>
             </div>
         </div>
@@ -286,11 +401,12 @@
 
     <script>
         const ballonDorData = [
+            { year: 2025, player: "Ousmane Dembélé", club: "Paris Saint-Germain", nationality: "France" },
             { year: 2024, player: "Rodri", club: "Manchester City", nationality: "Spain" },
             { year: 2023, player: "Lionel Messi", club: "Inter Miami", nationality: "Argentina" },
             { year: 2022, player: "Karim Benzema", club: "Real Madrid", nationality: "France" },
             { year: 2021, player: "Lionel Messi", club: "Paris Saint-Germain", nationality: "Argentina" },
-            { year: 2020, player: "Alexis Sánchez", club: "Paris Saint-Germain", nationality: "Chile" },
+            { year: 2020, player: "Not Awarded", club: "—", nationality: "COVID-19 pandemic" },
             { year: 2019, player: "Lionel Messi", club: "Barcelona", nationality: "Argentina" },
             { year: 2018, player: "Luka Modrić", club: "Real Madrid", nationality: "Croatia" },
             { year: 2017, player: "Cristiano Ronaldo", club: "Real Madrid", nationality: "Portugal" },
@@ -301,65 +417,73 @@
             { year: 2012, player: "Lionel Messi", club: "Barcelona", nationality: "Argentina" },
             { year: 2011, player: "Lionel Messi", club: "Barcelona", nationality: "Argentina" },
             { year: 2010, player: "Lionel Messi", club: "Barcelona", nationality: "Argentina" },
-            { year: 2009, player: "Cristiano Ronaldo", club: "Manchester United", nationality: "Portugal" },
+            { year: 2009, player: "Lionel Messi", club: "Barcelona", nationality: "Argentina" },
             { year: 2008, player: "Cristiano Ronaldo", club: "Manchester United", nationality: "Portugal" },
-            { year: 2007, player: "Kaka", club: "AC Milan", nationality: "Brazil" },
-            { year: 2006, player: "Zinedine Zidane", club: "Real Madrid", nationality: "France" },
+            { year: 2007, player: "Kaká", club: "AC Milan", nationality: "Brazil" },
+            { year: 2006, player: "Fabio Cannavaro", club: "Real Madrid", nationality: "Italy" },
             { year: 2005, player: "Ronaldinho", club: "Barcelona", nationality: "Brazil" },
             { year: 2004, player: "Andriy Shevchenko", club: "AC Milan", nationality: "Ukraine" },
-            { year: 2003, player: "Zinedine Zidane", club: "Real Madrid", nationality: "France" },
+            { year: 2003, player: "Pavel Nedvěd", club: "Juventus", nationality: "Czechia" },
             { year: 2002, player: "Ronaldo", club: "Real Madrid", nationality: "Brazil" },
-            { year: 2001, player: "Luis Figo", club: "Real Madrid", nationality: "Portugal" },
-            { year: 2000, player: "Zinedine Zidane", club: "Juventus", nationality: "France" },
+            { year: 2001, player: "Michael Owen", club: "Liverpool", nationality: "England" },
+            { year: 2000, player: "Luís Figo", club: "Real Madrid", nationality: "Portugal" },
             { year: 1999, player: "Rivaldo", club: "Barcelona", nationality: "Brazil" },
             { year: 1998, player: "Zinedine Zidane", club: "Juventus", nationality: "France" },
-            { year: 1997, player: "Ronaldo", club: "PSV Eindhoven", nationality: "Brazil" },
-            { year: 1996, player: "Dmitri Alenichev", club: "Lokomotiv Moscow", nationality: "Russia" },
+            { year: 1997, player: "Ronaldo", club: "Inter Milan", nationality: "Brazil" },
+            { year: 1996, player: "Matthias Sammer", club: "Borussia Dortmund", nationality: "Germany" },
             { year: 1995, player: "George Weah", club: "Paris Saint-Germain", nationality: "Liberia" },
-            { year: 1994, player: "Cristiano Ronaldo", club: "Parma", nationality: "Italy" },
-            { year: 1993, player: "Bobby Moore", club: "West Ham", nationality: "England" },
+            { year: 1994, player: "Hristo Stoichkov", club: "Barcelona", nationality: "Bulgaria" },
+            { year: 1993, player: "Roberto Baggio", club: "Juventus", nationality: "Italy" },
             { year: 1992, player: "Marco van Basten", club: "AC Milan", nationality: "Netherlands" },
             { year: 1991, player: "Jean-Pierre Papin", club: "Olympique Marseille", nationality: "France" },
-            { year: 1990, player: "Lothar Matthäus", club: "Bayern Munich", nationality: "Germany" },
+            { year: 1990, player: "Lothar Matthäus", club: "Inter Milan", nationality: "Germany" },
             { year: 1989, player: "Marco van Basten", club: "AC Milan", nationality: "Netherlands" },
             { year: 1988, player: "Marco van Basten", club: "AC Milan", nationality: "Netherlands" },
-            { year: 1987, player: "Ruud Gullit", club: "PSV Eindhoven", nationality: "Netherlands" },
+            { year: 1987, player: "Ruud Gullit", club: "AC Milan", nationality: "Netherlands" },
             { year: 1986, player: "Igor Belanov", club: "Dynamo Kyiv", nationality: "Soviet Union" },
             { year: 1985, player: "Michel Platini", club: "Juventus", nationality: "France" },
             { year: 1984, player: "Michel Platini", club: "Juventus", nationality: "France" },
             { year: 1983, player: "Michel Platini", club: "Juventus", nationality: "France" },
             { year: 1982, player: "Paolo Rossi", club: "Juventus", nationality: "Italy" },
-            { year: 1981, player: "Karl-Heinz Rummenigge", club: "Bayern Munich", nationality: "Germany" },
-            { year: 1980, player: "Karl-Heinz Rummenigge", club: "Bayern Munich", nationality: "Germany" },
+            { year: 1981, player: "Karl-Heinz Rummenigge", club: "Bayern Munich", nationality: "West Germany" },
+            { year: 1980, player: "Karl-Heinz Rummenigge", club: "Bayern Munich", nationality: "West Germany" },
             { year: 1979, player: "Kevin Keegan", club: "Hamburg SV", nationality: "England" },
             { year: 1978, player: "Kevin Keegan", club: "Hamburg SV", nationality: "England" },
             { year: 1977, player: "Allan Simonsen", club: "Borussia Mönchengladbach", nationality: "Denmark" },
-            { year: 1976, player: "Franz Beckenbauer", club: "Bayern Munich", nationality: "Germany" },
+            { year: 1976, player: "Franz Beckenbauer", club: "Bayern Munich", nationality: "West Germany" },
             { year: 1975, player: "Oleg Blokhin", club: "Dynamo Kyiv", nationality: "Soviet Union" },
             { year: 1974, player: "Johan Cruyff", club: "Barcelona", nationality: "Netherlands" },
             { year: 1973, player: "Johan Cruyff", club: "Barcelona", nationality: "Netherlands" },
-            { year: 1972, player: "Gerd Müller", club: "Bayern Munich", nationality: "Germany" },
+            { year: 1972, player: "Franz Beckenbauer", club: "Bayern Munich", nationality: "West Germany" },
             { year: 1971, player: "Johan Cruyff", club: "Ajax", nationality: "Netherlands" },
-            { year: 1970, player: "Gerd Müller", club: "Bayern Munich", nationality: "Germany" },
+            { year: 1970, player: "Gerd Müller", club: "Bayern Munich", nationality: "West Germany" },
             { year: 1969, player: "Gianni Rivera", club: "AC Milan", nationality: "Italy" },
             { year: 1968, player: "George Best", club: "Manchester United", nationality: "Northern Ireland" },
-            { year: 1967, player: "Bobby Charlton", club: "Manchester United", nationality: "England" },
+            { year: 1967, player: "Flórián Albert", club: "Ferencváros", nationality: "Hungary" },
             { year: 1966, player: "Bobby Charlton", club: "Manchester United", nationality: "England" },
             { year: 1965, player: "Eusébio", club: "Benfica", nationality: "Portugal" },
             { year: 1964, player: "Denis Law", club: "Manchester United", nationality: "Scotland" },
             { year: 1963, player: "Lev Yashin", club: "Dynamo Moscow", nationality: "Soviet Union" },
             { year: 1962, player: "Josef Masopust", club: "Dukla Prague", nationality: "Czechoslovakia" },
-            { year: 1961, player: "Luis Suárez", club: "Barcelona", nationality: "Spain" },
+            { year: 1961, player: "Omar Sívori", club: "Juventus", nationality: "Italy" },
             { year: 1960, player: "Luis Suárez", club: "Barcelona", nationality: "Spain" },
-            { year: 1959, player: "Alfredo Di Stéfano", club: "Real Madrid", nationality: "Argentina" },
+            { year: 1959, player: "Alfredo Di Stéfano", club: "Real Madrid", nationality: "Spain/Argentina" },
             { year: 1958, player: "Raymond Kopa", club: "Real Madrid", nationality: "France" },
-            { year: 1957, player: "Alfredo Di Stéfano", club: "Real Madrid", nationality: "Argentina" },
+            { year: 1957, player: "Alfredo Di Stéfano", club: "Real Madrid", nationality: "Spain/Argentina" },
             { year: 1956, player: "Stanley Matthews", club: "Blackpool", nationality: "England" }
         ];
 
         function getDecade(year) {
             const decade = Math.floor(year / 10) * 10;
             return decade + 's';
+        }
+
+        function getWikipediaUrl(playerName) {
+            // Uses Wikipedia's search endpoint with go=Go, which jumps straight
+            // to the article if there's an exact/close match, and falls back
+            // to search results otherwise (handles name clashes gracefully).
+            const query = encodeURIComponent(playerName);
+            return `https://en.wikipedia.org/w/index.php?search=${query}&title=Special:Search&go=Go`;
         }
 
         function renderWinners(data) {
@@ -370,8 +494,12 @@
                 return;
             }
 
-            container.innerHTML = data.map((winner, index) => `
-                <div class="winner-card">
+            container.innerHTML = data.map((winner, index) => {
+                const isUnavailable = winner.player === 'Not Awarded';
+                const wikiUrl = isUnavailable ? '' : getWikipediaUrl(winner.player);
+
+                return `
+                <div class="winner-card" ${isUnavailable ? '' : `data-wiki-url="${wikiUrl}" role="link" tabindex="0" aria-label="View ${winner.player} on Wikipedia"`}>
                     <div class="card-header">
                         <div class="year">${winner.year}</div>
                         <div class="rank">#${index + 1}</div>
@@ -390,7 +518,20 @@
                         </div>
                     </div>
                 </div>
-            `).join('');
+            `;
+            }).join('');
+
+            // Wire up clicks (and Enter/Space for keyboard users) to open Wikipedia
+            container.querySelectorAll('.winner-card[data-wiki-url]').forEach(card => {
+                const open = () => window.open(card.dataset.wikiUrl, '_blank', 'noopener');
+                card.addEventListener('click', open);
+                card.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        open();
+                    }
+                });
+            });
         }
 
         function filterWinners() {
