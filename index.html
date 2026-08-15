@@ -1481,7 +1481,7 @@
             { year: 1963, player: "Lev Yashin", club: "Dynamo Moscow", nationality: "Soviet Union" },
             { year: 1962, player: "Josef Masopust", club: "Dukla Prague", nationality: "Czechoslovakia" },
             { year: 1961, player: "Omar Sívori", club: "Juventus", nationality: "Italy" },
-            { year: 1960, player: "Luis Suárez", club: "Barcelona", nationality: "Spain" },
+            { year: 1960, player: "Luis Suárez", club: "Barcelona", nationality: "Spain", wikiUrl: "https://en.wikipedia.org/wiki/Luis_Su%C3%A1rez_(Spanish_footballer)" },
             { year: 1959, player: "Alfredo Di Stéfano", club: "Real Madrid", nationality: "Spain/Argentina" },
             { year: 1958, player: "Raymond Kopa", club: "Real Madrid", nationality: "France" },
             { year: 1957, player: "Alfredo Di Stéfano", club: "Real Madrid", nationality: "Spain/Argentina" },
@@ -1508,7 +1508,7 @@
 
             container.innerHTML = data.map((winner, index) => {
                 const isUnavailable = winner.player === 'Not Awarded';
-                const wikiUrl = isUnavailable ? '' : getWikipediaUrl(winner.player);
+                const wikiUrl = isUnavailable ? '' : (winner.wikiUrl || getWikipediaUrl(winner.player));
 
                 return `
                 <div class="winner-card" ${isUnavailable ? '' : `onclick="window.open('${wikiUrl}', '_blank')" style="cursor: pointer;"`}>
