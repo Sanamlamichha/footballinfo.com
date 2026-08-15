@@ -144,18 +144,32 @@
 
         /* UCL PAGE STYLES */
         .ucl-page {
-            background: linear-gradient(135deg, #0a0e27 0%, #1a0f3e 25%, #0f1f4a 50%, #051a3f 75%, #0a0e27 100%);
+            background: linear-gradient(-45deg, #1c0805 0%, #2b0f08 25%, #1f0a04 50%, #2b0f08 75%, #1c0805 100%);
             background-size: 400% 400%;
-            animation: uclGradientShift 15s ease infinite;
+            animation: uclEnergeticShift 8s ease infinite;
             padding: 60px 20px;
             position: relative;
             overflow: hidden;
         }
 
-        @keyframes uclGradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        @keyframes uclEnergeticShift {
+            0% { 
+                background-position: 0% 50%;
+                background: linear-gradient(-45deg, #1c0805 0%, #2b0f08 25%, #1f0a04 50%, #2b0f08 75%, #1c0805 100%);
+            }
+            25% { 
+                background: linear-gradient(-45deg, #2b0f08 0%, #1f0a04 25%, #2b0f08 50%, #1c0805 75%, #2b0f08 100%);
+            }
+            50% { 
+                background: linear-gradient(-45deg, #1f0a04 0%, #2b0f08 25%, #1c0805 50%, #1f0a04 75%, #2b0f08 100%);
+            }
+            75% { 
+                background: linear-gradient(-45deg, #2b0f08 0%, #1c0805 25%, #2b0f08 50%, #1f0a04 75%, #1c0805 100%);
+            }
+            100% { 
+                background-position: 100% 50%;
+                background: linear-gradient(-45deg, #1c0805 0%, #2b0f08 25%, #1f0a04 50%, #2b0f08 75%, #1c0805 100%);
+            }
         }
 
         .ucl-page::before {
@@ -166,7 +180,7 @@
             width: 200%;
             height: 200%;
             background: url('ucl-trophy.png') center/contain no-repeat;
-            opacity: 0.08;
+            opacity: 0.06;
             pointer-events: none;
             z-index: 0;
             animation: uclRotate 30s linear infinite;
@@ -184,16 +198,18 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 30% 70%, rgba(30, 144, 255, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 30%, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 50% 50%, rgba(0, 200, 255, 0.08) 0%, transparent 60%);
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 157, 63, 0.2) 0%, transparent 40%),
+                radial-gradient(circle at 80% 20%, rgba(255, 209, 102, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(255, 100, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 30% 30%, rgba(214, 84, 42, 0.15) 0%, transparent 40%);
             pointer-events: none;
             z-index: 1;
-            animation: uclPulse 4s ease-in-out infinite;
+            animation: uclEnergeticPulse 6s ease-in-out infinite;
         }
 
-        @keyframes uclPulse {
-            0%, 100% { opacity: 0.5; }
+        @keyframes uclEnergeticPulse {
+            0%, 100% { opacity: 0.6; }
             50% { opacity: 1; }
         }
 
@@ -201,12 +217,12 @@
             font-family: 'Playfair Display', serif;
             font-weight: 900;
             font-size: clamp(3em, 10vw, 5em);
-            background: linear-gradient(180deg, #00d4ff 0%, #00a8ff 25%, #0066ff 50%, #6b00ff 75%, #00d4ff 100%);
+            background: linear-gradient(180deg, #ff9d3f 0%, #ffb35c 25%, #e8590c 50%, #d1263d 75%, #ff9d3f 100%);
             background-size: 200% 200%;
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.5)) drop-shadow(0 0 40px rgba(107, 0, 255, 0.3));
+            filter: drop-shadow(0 0 20px rgba(255, 157, 63, 0.5)) drop-shadow(0 0 40px rgba(209, 38, 61, 0.3));
             margin-bottom: 20px;
             letter-spacing: 2px;
             text-align: center;
@@ -216,13 +232,13 @@
         }
 
         @keyframes uclTextGlow {
-            0%, 100% { filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.5)) drop-shadow(0 0 40px rgba(107, 0, 255, 0.3)); }
-            50% { filter: drop-shadow(0 0 30px rgba(0, 212, 255, 0.8)) drop-shadow(0 0 60px rgba(107, 0, 255, 0.5)); }
+            0%, 100% { filter: drop-shadow(0 0 20px rgba(255, 157, 63, 0.5)) drop-shadow(0 0 40px rgba(209, 38, 61, 0.3)); }
+            50% { filter: drop-shadow(0 0 30px rgba(255, 157, 63, 0.8)) drop-shadow(0 0 60px rgba(209, 38, 61, 0.5)); }
         }
 
         .ucl-page p {
             font-size: 1.3em;
-            background: linear-gradient(90deg, #00d4ff, #64d5ff, #a8f5ff);
+            background: linear-gradient(90deg, #ff9d3f, #ffc178, #ffe0b3);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -239,6 +255,157 @@
         @keyframes uclSubPulse {
             0%, 100% { opacity: 0.8; }
             50% { opacity: 1; }
+        }
+
+        /* UCL Search Section */
+        .ucl-search-section {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ucl-search-input,
+        .ucl-search-filter {
+            padding: 14px 24px;
+            font-size: 1em;
+            font-family: 'Inter', sans-serif;
+            border: 2px solid rgba(255, 157, 63, 0.5);
+            background: linear-gradient(135deg, rgba(0, 20, 60, 0.8), rgba(10, 30, 80, 0.8));
+            color: #ffe0b3;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(255, 157, 63, 0.2),
+                        inset 0 0 10px rgba(255, 157, 63, 0.05);
+        }
+
+        .ucl-search-input::placeholder {
+            color: rgba(164, 245, 255, 0.5);
+        }
+
+        .ucl-search-input:focus,
+        .ucl-search-filter:focus {
+            outline: none;
+            border-color: #ff9d3f;
+            background: linear-gradient(135deg, rgba(0, 40, 100, 0.9), rgba(20, 50, 120, 0.9));
+            box-shadow: 0 0 25px rgba(255, 157, 63, 0.4),
+                        inset 0 0 15px rgba(255, 157, 63, 0.1);
+            color: #ff9d3f;
+        }
+
+        .ucl-search-btn {
+            padding: 14px 40px;
+            background: linear-gradient(135deg, #ff9d3f, #d1263d);
+            border: 2px solid rgba(255, 157, 63, 0.6);
+            color: #fff;
+            font-weight: 700;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(255, 157, 63, 0.3),
+                        0 0 40px rgba(209, 38, 61, 0.2);
+        }
+
+        .ucl-search-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(255, 157, 63, 0.5),
+                        0 0 60px rgba(209, 38, 61, 0.4);
+            background: linear-gradient(135deg, #ffb35c, #ff3355);
+        }
+
+        .ucl-search-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .ucl-search-results {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ucl-result-card {
+            background: linear-gradient(135deg, rgba(255, 157, 63, 0.1), rgba(209, 38, 61, 0.08));
+            border: 2px solid rgba(255, 157, 63, 0.4);
+            border-radius: 15px;
+            padding: 25px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 0 20px rgba(255, 157, 63, 0.2),
+                        inset 0 0 15px rgba(255, 157, 63, 0.05);
+            animation: slideUp 0.5s ease forwards;
+        }
+
+        .ucl-result-card:hover {
+            transform: translateY(-8px);
+            border-color: #ff9d3f;
+            background: linear-gradient(135deg, rgba(255, 157, 63, 0.15), rgba(209, 38, 61, 0.12));
+            box-shadow: 0 0 35px rgba(255, 157, 63, 0.4),
+                        inset 0 0 20px rgba(255, 157, 63, 0.1);
+        }
+
+        .ucl-result-year {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ff9d3f, #d1263d);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 10px rgba(255, 157, 63, 0.4));
+        }
+
+        .ucl-result-info {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .ucl-result-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 157, 63, 0.2);
+        }
+
+        .ucl-result-row:last-child {
+            border-bottom: none;
+        }
+
+        .ucl-result-label {
+            color: #ffc178;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .ucl-result-value {
+            color: #ffe0b3;
+            font-weight: 700;
+            font-size: 1em;
+        }
+
+        .ucl-no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 40px 20px;
+            color: #ffc178;
+            font-size: 1.1em;
+            background: linear-gradient(135deg, rgba(255, 157, 63, 0.08), rgba(209, 38, 61, 0.05));
+            border: 2px dashed rgba(255, 157, 63, 0.3);
+            border-radius: 15px;
+            letter-spacing: 1px;
         }
 
         .ucl-timeline {
@@ -258,20 +425,20 @@
         }
 
         .ucl-timeline::-webkit-scrollbar-track {
-            background: rgba(0, 212, 255, 0.1);
+            background: rgba(255, 157, 63, 0.1);
             border-radius: 10px;
         }
 
         .ucl-timeline::-webkit-scrollbar-thumb {
-            background: linear-gradient(90deg, #00d4ff, #6b00ff);
+            background: linear-gradient(90deg, #ff9d3f, #d1263d);
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
+            box-shadow: 0 0 10px rgba(255, 157, 63, 0.4);
         }
 
         .ucl-yr-btn {
-            background: rgba(0, 212, 255, 0.08);
-            border: 2px solid rgba(0, 212, 255, 0.3);
-            color: #64d5ff;
+            background: rgba(255, 157, 63, 0.08);
+            border: 2px solid rgba(255, 157, 63, 0.3);
+            color: #ffc178;
             padding: 12px 20px;
             border-radius: 10px;
             cursor: pointer;
@@ -281,7 +448,7 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 0 10px rgba(0, 212, 255, 0.1);
+            box-shadow: 0 0 10px rgba(255, 157, 63, 0.1);
         }
 
         .ucl-yr-btn::before {
@@ -291,15 +458,15 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 157, 63, 0.2), transparent);
             transition: left 0.5s ease;
         }
 
         .ucl-yr-btn:hover {
-            border-color: #00d4ff;
-            background: rgba(0, 212, 255, 0.15);
-            color: #a8f5ff;
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+            border-color: #ff9d3f;
+            background: rgba(255, 157, 63, 0.15);
+            color: #ffe0b3;
+            box-shadow: 0 0 20px rgba(255, 157, 63, 0.3);
             transform: translateY(-2px);
         }
 
@@ -308,25 +475,25 @@
         }
 
         .ucl-yr-btn.active {
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.3), rgba(107, 0, 255, 0.2));
-            border-color: #00d4ff;
-            color: #a8f5ff;
-            box-shadow: 0 0 25px rgba(0, 212, 255, 0.5), inset 0 0 10px rgba(0, 212, 255, 0.1);
-            text-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
+            background: linear-gradient(135deg, rgba(255, 157, 63, 0.3), rgba(209, 38, 61, 0.2));
+            border-color: #ff9d3f;
+            color: #ffe0b3;
+            box-shadow: 0 0 25px rgba(255, 157, 63, 0.5), inset 0 0 10px rgba(255, 157, 63, 0.1);
+            text-shadow: 0 0 10px rgba(255, 157, 63, 0.4);
         }
 
         .ucl-board {
             background: linear-gradient(135deg, rgba(10, 30, 80, 0.8), rgba(5, 20, 60, 0.8));
-            border: 2px solid rgba(0, 212, 255, 0.5);
+            border: 2px solid rgba(255, 157, 63, 0.5);
             border-radius: 20px;
             padding: 50px;
             margin-top: 40px;
             animation: fadeIn 0.5s ease;
             position: relative;
             z-index: 2;
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.2),
-                        inset 0 0 30px rgba(0, 212, 255, 0.05),
-                        0 0 60px rgba(107, 0, 255, 0.15);
+            box-shadow: 0 0 30px rgba(255, 157, 63, 0.2),
+                        inset 0 0 30px rgba(255, 157, 63, 0.05),
+                        0 0 60px rgba(209, 38, 61, 0.15);
         }
 
         .ucl-board::before {
@@ -337,8 +504,8 @@
             right: 0;
             bottom: 0;
             border-radius: 20px;
-            background: radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(107, 0, 255, 0.08) 0%, transparent 50%);
+            background: radial-gradient(circle at 20% 80%, rgba(255, 157, 63, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(209, 38, 61, 0.08) 0%, transparent 50%);
             pointer-events: none;
             animation: uclBoardShine 4s ease-in-out infinite;
         }
@@ -354,29 +521,29 @@
             align-items: center;
             margin-bottom: 40px;
             padding-bottom: 20px;
-            border-bottom: 2px solid rgba(30, 144, 255, 0.2);
+            border-bottom: 2px solid rgba(255, 157, 63, 0.2);
         }
 
         .ucl-board-year {
             font-family: 'Playfair Display', serif;
             font-size: 3.5em;
             font-weight: 900;
-            background: linear-gradient(180deg, #00d4ff 0%, #64d5ff 50%, #6b00ff 100%);
+            background: linear-gradient(180deg, #ff9d3f 0%, #ffc178 50%, #d1263d 100%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.6)) drop-shadow(0 0 30px rgba(107, 0, 255, 0.4));
-            text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+            filter: drop-shadow(0 0 15px rgba(255, 157, 63, 0.6)) drop-shadow(0 0 30px rgba(209, 38, 61, 0.4));
+            text-shadow: 0 0 20px rgba(255, 157, 63, 0.3);
             animation: uclYearPulse 2s ease-in-out infinite;
         }
 
         @keyframes uclYearPulse {
-            0%, 100% { filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.6)) drop-shadow(0 0 30px rgba(107, 0, 255, 0.4)); }
-            50% { filter: drop-shadow(0 0 25px rgba(0, 212, 255, 0.9)) drop-shadow(0 0 50px rgba(107, 0, 255, 0.6)); }
+            0%, 100% { filter: drop-shadow(0 0 15px rgba(255, 157, 63, 0.6)) drop-shadow(0 0 30px rgba(209, 38, 61, 0.4)); }
+            50% { filter: drop-shadow(0 0 25px rgba(255, 157, 63, 0.9)) drop-shadow(0 0 50px rgba(209, 38, 61, 0.6)); }
         }
 
         .ucl-board-host {
-            color: #64d5ff;
+            color: #ffc178;
             font-size: 1.1em;
             letter-spacing: 1px;
         }
@@ -419,50 +586,50 @@
         }
 
         .ucl-podium-slot.gold {
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.25), rgba(107, 0, 255, 0.15));
-            border-color: #00d4ff;
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.4),
-                        inset 0 0 20px rgba(0, 212, 255, 0.1),
-                        0 0 60px rgba(0, 212, 255, 0.2);
+            background: linear-gradient(135deg, rgba(255, 157, 63, 0.25), rgba(209, 38, 61, 0.15));
+            border-color: #ff9d3f;
+            box-shadow: 0 0 30px rgba(255, 157, 63, 0.4),
+                        inset 0 0 20px rgba(255, 157, 63, 0.1),
+                        0 0 60px rgba(255, 157, 63, 0.2);
             transform: scale(1.08);
             animation: uclGlowPulse 2s ease-in-out infinite, slideUp 0.6s ease forwards;
         }
 
         @keyframes uclGlowPulse {
             0%, 100% { 
-                box-shadow: 0 0 30px rgba(0, 212, 255, 0.4),
-                            inset 0 0 20px rgba(0, 212, 255, 0.1),
-                            0 0 60px rgba(0, 212, 255, 0.2);
+                box-shadow: 0 0 30px rgba(255, 157, 63, 0.4),
+                            inset 0 0 20px rgba(255, 157, 63, 0.1),
+                            0 0 60px rgba(255, 157, 63, 0.2);
             }
             50% { 
-                box-shadow: 0 0 50px rgba(0, 212, 255, 0.7),
-                            inset 0 0 30px rgba(0, 212, 255, 0.2),
-                            0 0 80px rgba(0, 212, 255, 0.4);
+                box-shadow: 0 0 50px rgba(255, 157, 63, 0.7),
+                            inset 0 0 30px rgba(255, 157, 63, 0.2),
+                            0 0 80px rgba(255, 157, 63, 0.4);
             }
         }
 
         .ucl-podium-slot.silver {
-            background: linear-gradient(135deg, rgba(107, 0, 255, 0.2), rgba(0, 150, 255, 0.15));
-            border-color: #6b00ff;
-            box-shadow: 0 0 20px rgba(107, 0, 255, 0.3),
-                        inset 0 0 15px rgba(107, 0, 255, 0.08);
+            background: linear-gradient(135deg, rgba(209, 38, 61, 0.2), rgba(0, 150, 255, 0.15));
+            border-color: #d1263d;
+            box-shadow: 0 0 20px rgba(209, 38, 61, 0.3),
+                        inset 0 0 15px rgba(209, 38, 61, 0.08);
             animation: uclSecondaryGlow 2s ease-in-out infinite, slideUp 0.6s ease forwards 0.1s;
         }
 
         @keyframes uclSecondaryGlow {
             0%, 100% { 
-                box-shadow: 0 0 20px rgba(107, 0, 255, 0.3),
-                            inset 0 0 15px rgba(107, 0, 255, 0.08);
+                box-shadow: 0 0 20px rgba(209, 38, 61, 0.3),
+                            inset 0 0 15px rgba(209, 38, 61, 0.08);
             }
             50% { 
-                box-shadow: 0 0 35px rgba(107, 0, 255, 0.5),
-                            inset 0 0 25px rgba(107, 0, 255, 0.15);
+                box-shadow: 0 0 35px rgba(209, 38, 61, 0.5),
+                            inset 0 0 25px rgba(209, 38, 61, 0.15);
             }
         }
 
         .ucl-medal {
             font-size: 0.9em;
-            background: linear-gradient(90deg, #00d4ff, #64d5ff);
+            background: linear-gradient(90deg, #ff9d3f, #ffc178);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -470,19 +637,19 @@
             letter-spacing: 2px;
             margin-bottom: 10px;
             font-weight: 700;
-            text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+            text-shadow: 0 0 20px rgba(255, 157, 63, 0.3);
         }
 
         .ucl-podium-team {
             font-family: 'Playfair Display', serif;
             font-size: 2em;
             font-weight: 900;
-            background: linear-gradient(135deg, #00d4ff, #64d5ff, #a8f5ff);
+            background: linear-gradient(135deg, #ff9d3f, #ffc178, #ffe0b3);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             margin-top: 10px;
-            filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.4));
+            filter: drop-shadow(0 0 10px rgba(255, 157, 63, 0.4));
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -497,25 +664,28 @@
         }
 
         .ucl-stat-row {
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.12), rgba(107, 0, 255, 0.08));
+            background: linear-gradient(135deg, rgba(255, 157, 63, 0.12), rgba(209, 38, 61, 0.08));
             border-left: 4px solid;
-            border-image: linear-gradient(180deg, #00d4ff, #6b00ff) 1;
+            border-image: linear-gradient(180deg, #ff9d3f, #d1263d) 1;
             padding: 20px;
             border-radius: 10px;
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
+            row-gap: 8px;
+            column-gap: 16px;
             animation: slideIn 0.5s ease forwards;
             position: relative;
-            overflow: hidden;
-            box-shadow: 0 0 15px rgba(0, 212, 255, 0.15),
-                        inset 0 0 10px rgba(0, 212, 255, 0.05);
+            overflow: visible;
+            box-shadow: 0 0 15px rgba(255, 157, 63, 0.15),
+                        inset 0 0 10px rgba(255, 157, 63, 0.05);
             transition: all 0.3s ease;
         }
 
         .ucl-stat-row:hover {
-            box-shadow: 0 0 25px rgba(0, 212, 255, 0.3),
-                        inset 0 0 15px rgba(0, 212, 255, 0.1);
+            box-shadow: 0 0 25px rgba(255, 157, 63, 0.3),
+                        inset 0 0 15px rgba(255, 157, 63, 0.1);
             transform: translateX(5px);
         }
 
@@ -542,41 +712,49 @@
         }
 
         .ucl-stat-key {
-            color: #00d4ff;
+            color: #ff9d3f;
             font-weight: 700;
             text-transform: uppercase;
             font-size: 0.85em;
             letter-spacing: 1.5px;
-            background: linear-gradient(90deg, #00d4ff, #64d5ff);
+            background: linear-gradient(90deg, #ff9d3f, #ffc178);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.3));
+            filter: drop-shadow(0 0 5px rgba(255, 157, 63, 0.3));
+            flex: 0 0 auto;
+            min-width: 0;
         }
 
         .ucl-stat-val {
-            color: #a8f5ff;
+            color: #ffe0b3;
             font-weight: 800;
             font-size: 1.1em;
-            background: linear-gradient(90deg, #64d5ff, #a8f5ff);
+            background: linear-gradient(90deg, #ffc178, #ffe0b3);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.4));
+            filter: drop-shadow(0 0 8px rgba(255, 157, 63, 0.4));
+            flex: 1 1 auto;
+            min-width: 150px;
+            text-align: right;
+            line-height: 1.5;
+            white-space: normal;
+            word-break: break-word;
         }
 
         .ucl-stat-val.dim {
-            color: #5a9fbd;
+            color: #bd7a5a;
             opacity: 0.6;
             background: none;
             -webkit-background-clip: unset;
             background-clip: unset;
-            filter: drop-shadow(0 0 3px rgba(0, 212, 255, 0.2));
+            filter: drop-shadow(0 0 3px rgba(255, 157, 63, 0.2));
         }
 
         .ucl-board-foot {
             text-align: center;
-            background: linear-gradient(90deg, #00d4ff, #64d5ff, #6b00ff);
+            background: linear-gradient(90deg, #ff9d3f, #ffc178, #d1263d);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -585,9 +763,9 @@
             text-transform: uppercase;
             margin-top: 40px;
             padding-top: 25px;
-            border-top: 2px solid rgba(0, 212, 255, 0.3);
+            border-top: 2px solid rgba(255, 157, 63, 0.3);
             font-weight: 700;
-            filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.3));
+            filter: drop-shadow(0 0 10px rgba(255, 157, 63, 0.3));
         }
 
         .section-card {
@@ -1034,6 +1212,7 @@
 
         .stat-row {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             align-items: baseline;
             gap: 16px;
@@ -1057,6 +1236,7 @@
             color: #f0b840;
             font-weight: 700;
             white-space: nowrap;
+            flex: 0 0 auto;
         }
 
         .stat-val {
@@ -1064,6 +1244,11 @@
             color: var(--chalk);
             text-align: right;
             font-weight: 500;
+            flex: 1 1 auto;
+            min-width: 150px;
+            line-height: 1.5;
+            white-space: normal;
+            word-break: break-word;
         }
 
         .board-foot {
@@ -1185,6 +1370,19 @@
     <div id="ucl" class="page content-page ucl-page">
         <h1>UEFA Champions League</h1>
         <p>The Story of European Club Football's Greatest Competition</p>
+
+        <div class="container">
+            <div class="ucl-search-section">
+                <input 
+                    type="text" 
+                    id="uclSearchInput" 
+                    class="ucl-search-input" 
+                    placeholder="Search by season or team name..."
+                >
+                <button class="ucl-search-btn" onclick="searchUCL()">🔍 Search</button>
+            </div>
+            <div class="ucl-search-results" id="uclSearchResults"></div>
+        </div>
 
         <div class="container">
             <div class="ucl-timeline" id="uclTimeline"></div>
@@ -1467,77 +1665,77 @@
 
         // ===== UEFA CHAMPIONS LEAGUE DATA & FUNCTIONALITY =====
         const UCL_DATA = [
-            {year:1955, winner:"Real Madrid", runnerup:"Stade de Reims", topScorer:"Miloš Milutinović — 8 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1956, winner:"Real Madrid", runnerup:"ACF Fiorentina", topScorer:"Dennis Viollet — 9 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1957, winner:"Real Madrid", runnerup:"AC Milan", topScorer:"Alfredo Di Stéfano — 10 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1958, winner:"Real Madrid", runnerup:"Stade de Reims", topScorer:"Just Fontaine — 10 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1959, winner:"Real Madrid", runnerup:"Eintracht Frankfurt", topScorer:"Ferenc Puskás — 12 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1960, winner:"S.L. Benfica", runnerup:"FC Barcelona", topScorer:"José Águas — 11 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1961, winner:"S.L. Benfica", runnerup:"Real Madrid", topScorer:"Heinz Strehl — 8 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1962, winner:"AC Milan", runnerup:"S.L. Benfica", topScorer:"José Altafini — 14 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1963, winner:"Inter Milan", runnerup:"Real Madrid", topScorer:"Vladica Kovačević et al. — 7 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1964, winner:"Inter Milan", runnerup:"S.L. Benfica", topScorer:"Eusébio & José Torres — 9 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1965, winner:"Real Madrid", runnerup:"FK Partizan", topScorer:"Flórián Albert & Eusébio — 7 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1966, winner:"Celtic", runnerup:"Inter Milan", topScorer:"Jürgen Piepenburg & Paul Van Himst — 6 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1967, winner:"Manchester United", runnerup:"S.L. Benfica", topScorer:"Eusébio — 6 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1968, winner:"AC Milan", runnerup:"Ajax", topScorer:"Denis Law — 9 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1969, winner:"Feyenoord", runnerup:"Celtic", topScorer:"Mick Jones — 8 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1970, winner:"Ajax", runnerup:"Panathinaikos", topScorer:"Antonis Antoniadis — 10 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1971, winner:"Ajax", runnerup:"Inter Milan", topScorer:"Johan Cruyff et al. — 5 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1972, winner:"Ajax", runnerup:"Juventus", topScorer:"Gerd Müller — 11 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1973, winner:"Bayern Munich", runnerup:"Atlético Madrid", topScorer:"Gerd Müller — 8 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1974, winner:"Bayern Munich", runnerup:"Leeds United", topScorer:"Gerd Müller & Eduard Markarov — 5 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1975, winner:"Bayern Munich", runnerup:"AS Saint-Étienne", topScorer:"Jupp Heynckes — 6 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1976, winner:"Liverpool", runnerup:"Borussia Mönchengladbach", topScorer:"Gerd Müller & Franco Cucinotta — 5 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1977, winner:"Liverpool", runnerup:"Club Brugge", topScorer:"Allan Simonsen — 5 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1978, winner:"Nottingham Forest", runnerup:"Malmö FF", topScorer:"Claudio Sulser — 11 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1979, winner:"Nottingham Forest", runnerup:"Hamburger SV", topScorer:"Søren Lerby — 10 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1980, winner:"Liverpool", runnerup:"Real Madrid", topScorer:"Terry McDermott et al. — 6 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1981, winner:"Aston Villa", runnerup:"Bayern Munich", topScorer:"Dieter Hoeneß — 7 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1982, winner:"Hamburger SV", runnerup:"Juventus", topScorer:"Paolo Rossi — 6 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1983, winner:"Liverpool", runnerup:"AS Roma", topScorer:"Viktor Sokol — 6 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1984, winner:"Juventus", runnerup:"Liverpool", topScorer:"Torbjörn Nilsson & Michel Platini — 7 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1985, winner:"Steaua București", runnerup:"FC Barcelona", topScorer:"Torbjörn Nilsson — 7 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1986, winner:"FC Porto", runnerup:"Bayern Munich", topScorer:"Borislav Cvetković — 7 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1987, winner:"PSV Eindhoven", runnerup:"S.L. Benfica", topScorer:"Gheorghe Hagi et al. — 4 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1988, winner:"AC Milan", runnerup:"Steaua București", topScorer:"Marco van Basten — 10 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1989, winner:"AC Milan", runnerup:"S.L. Benfica", topScorer:"Romário & Jean-Pierre Papin — 6 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1990, winner:"Red Star Belgrade", runnerup:"Olympique de Marseille", topScorer:"Peter Pacult & Jean-Pierre Papin — 6 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1991, winner:"FC Barcelona", runnerup:"UC Sampdoria", topScorer:"Sergei Yuran & Jean-Pierre Papin — 7 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1992, winner:"Olympique de Marseille", runnerup:"AC Milan", topScorer:"Franck Sauzée — 5 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1993, winner:"AC Milan", runnerup:"FC Barcelona", topScorer:"Hristo Stoichkov — 5 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1994, winner:"Ajax", runnerup:"AC Milan", topScorer:"George Weah — 7 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1995, winner:"Juventus", runnerup:"Ajax", topScorer:"Jari Litmanen — 9 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1996, winner:"Borussia Dortmund", runnerup:"Juventus", topScorer:"Milinko Pantić — 5 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1997, winner:"Real Madrid", runnerup:"Juventus", topScorer:"Alessandro Del Piero — 10 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1998, winner:"Manchester United", runnerup:"Bayern Munich", topScorer:"Andriy Shevchenko & Dwight Yorke — 8 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:1999, winner:"Real Madrid", runnerup:"Valencia CF", topScorer:"Mário Jardel et al. — 10 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:2000, winner:"Bayern Munich", runnerup:"Valencia CF", topScorer:"Raúl González — 7 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:2001, winner:"Real Madrid", runnerup:"Bayer 04 Leverkusen", topScorer:"Ruud van Nistelrooy — 10 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:2002, winner:"AC Milan", runnerup:"Juventus", topScorer:"Ruud van Nistelrooy — 12 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:2003, winner:"FC Porto", runnerup:"AS Monaco", topScorer:"Fernando Morientes — 9 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:2004, winner:"Liverpool", runnerup:"AC Milan", topScorer:"Ruud van Nistelrooy — 8 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:2005, winner:"FC Barcelona", runnerup:"Arsenal", topScorer:"Andriy Shevchenko — 9 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:2006, winner:"AC Milan", runnerup:"Liverpool", topScorer:"Kaká — 10 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:2007, winner:"Manchester United", runnerup:"Chelsea", topScorer:"Cristiano Ronaldo — 8 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:2008, winner:"FC Barcelona", runnerup:"Manchester United", topScorer:"Lionel Messi — 9 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:2009, winner:"Inter Milan", runnerup:"Bayern Munich", topScorer:"Lionel Messi — 8 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:2010, winner:"FC Barcelona", runnerup:"Manchester United", topScorer:"Lionel Messi — 12 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:2011, winner:"Chelsea", runnerup:"Bayern Munich", topScorer:"Lionel Messi — 14 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:2012, winner:"Bayern Munich", runnerup:"Borussia Dortmund", topScorer:"Cristiano Ronaldo — 12 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:2013, winner:"Real Madrid", runnerup:"Atlético Madrid", topScorer:"Cristiano Ronaldo — 17 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:2014, winner:"FC Barcelona", runnerup:"Juventus", topScorer:"Messi, Neymar & Ronaldo — 10 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:2015, winner:"Real Madrid", runnerup:"Atlético Madrid", topScorer:"Cristiano Ronaldo — 16 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
-            {year:2016, winner:"Real Madrid", runnerup:"Juventus", topScorer:"Cristiano Ronaldo — 12 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Gianluigi Buffon"},
-            {year:2017, winner:"Real Madrid", runnerup:"Liverpool", topScorer:"Cristiano Ronaldo — 15 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Keylor Navas"},
-            {year:2018, winner:"Liverpool", runnerup:"Tottenham Hotspur", topScorer:"Lionel Messi — 12 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Alisson Becker"},
-            {year:2019, winner:"Bayern Munich", runnerup:"Paris Saint-Germain", topScorer:"Robert Lewandowski — 15 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Manuel Neuer"},
-            {year:2020, winner:"Chelsea", runnerup:"Manchester City", topScorer:"Erling Haaland — 10 goals", playerOfYear:"Not awarded", youngPlayer:"Not awarded", goalkeeper:"Édouard Mendy"},
-            {year:2021, winner:"Real Madrid", runnerup:"Liverpool", topScorer:"Karim Benzema — 15 goals", playerOfYear:"Karim Benzema", youngPlayer:"Vinícius Júnior", goalkeeper:"Not awarded"},
-            {year:2022, winner:"Manchester City", runnerup:"Inter Milan", topScorer:"Erling Haaland — 12 goals", playerOfYear:"Rodri", youngPlayer:"Khvicha Kvaratskhelia", goalkeeper:"Not awarded"},
-            {year:2023, winner:"Real Madrid", runnerup:"Borussia Dortmund", topScorer:"Harry Kane & Mbappé — 8 goals", playerOfYear:"Vinícius Júnior", youngPlayer:"Jude Bellingham", goalkeeper:"Not awarded"},
-            {year:2024, winner:"Paris Saint-Germain", runnerup:"Inter Milan", topScorer:"Raphinha & Guirassy — 13 goals", playerOfYear:"Ousmane Dembélé", youngPlayer:"Désiré Doué", goalkeeper:"Not awarded"},
-            {year:2025, winner:"Paris Saint-Germain", runnerup:"Arsenal", topScorer:"Kylian Mbappé — 15 goals", playerOfYear:"Khvicha Kvaratskhelia", youngPlayer:"Not awarded", goalkeeper:"Not awarded"},
+            {season:"1955/56", winner:"Real Madrid", runnerup:"Stade de Reims", score:"Real Madrid 4-3 Stade de Reims", topScorer:"Miloš Milutinović — 8 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1956/57", winner:"Real Madrid", runnerup:"ACF Fiorentina", score:"Real Madrid 2-0 ACF Fiorentina", topScorer:"Dennis Viollet — 9 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1957/58", winner:"Real Madrid", runnerup:"AC Milan", score:"Real Madrid 3-2 AC Milan (aet)", topScorer:"Alfredo Di Stéfano — 10 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1958/59", winner:"Real Madrid", runnerup:"Stade de Reims", score:"Real Madrid 2-0 Stade de Reims", topScorer:"Just Fontaine — 10 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1959/60", winner:"Real Madrid", runnerup:"Eintracht Frankfurt", score:"Real Madrid 7-3 Eintracht Frankfurt", topScorer:"Ferenc Puskás — 12 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1960/61", winner:"S.L. Benfica", runnerup:"FC Barcelona", score:"S.L. Benfica 3-2 FC Barcelona", topScorer:"José Águas — 11 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1961/62", winner:"S.L. Benfica", runnerup:"Real Madrid", score:"S.L. Benfica 5-3 Real Madrid", topScorer:"Heinz Strehl — 8 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1962/63", winner:"AC Milan", runnerup:"S.L. Benfica", score:"AC Milan 2-1 S.L. Benfica", topScorer:"José Altafini — 14 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1963/64", winner:"Inter Milan", runnerup:"Real Madrid", score:"Inter Milan 3-1 Real Madrid", topScorer:"Vladica Kovačević, Sandro Mazzola & Ferenc Puskás — 7 each", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1964/65", winner:"Inter Milan", runnerup:"S.L. Benfica", score:"Inter Milan 1-0 S.L. Benfica", topScorer:"Eusébio & José Torres — 9 each", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1965/66", winner:"Real Madrid", runnerup:"FK Partizan", score:"Real Madrid 2-1 FK Partizan", topScorer:"Flórián Albert & Eusébio — 7 each", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1966/67", winner:"Celtic", runnerup:"Inter Milan", score:"Celtic 2-1 Inter Milan", topScorer:"Jürgen Piepenburg & Paul Van Himst — 6 each", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1967/68", winner:"Manchester United", runnerup:"S.L. Benfica", score:"Manchester United 4-1 S.L. Benfica (aet)", topScorer:"Eusébio — 6 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1968/69", winner:"AC Milan", runnerup:"Ajax", score:"AC Milan 4-1 Ajax", topScorer:"Denis Law — 9 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1969/70", winner:"Feyenoord", runnerup:"Celtic", score:"Feyenoord 2-1 Celtic (aet)", topScorer:"Mick Jones — 8 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1970/71", winner:"Ajax", runnerup:"Panathinaikos", score:"Ajax 2-0 Panathinaikos", topScorer:"Antonis Antoniadis — 10 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1971/72", winner:"Ajax", runnerup:"Inter Milan", score:"Ajax 2-0 Inter Milan", topScorer:"Johan Cruyff, Antal Dunai, Lou Macari & Silvester Takač — 5 each", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1972/73", winner:"Ajax", runnerup:"Juventus", score:"Ajax 1-0 Juventus", topScorer:"Gerd Müller — 11 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1973/74", winner:"Bayern Munich", runnerup:"Atlético Madrid", score:"Bayern Munich 1-1 Atlético Madrid (aet); Bayern Munich won 4-0 in replay", topScorer:"Gerd Müller — 8 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1974/75", winner:"Bayern Munich", runnerup:"Leeds United", score:"Bayern Munich 2-0 Leeds United", topScorer:"Gerd Müller & Eduard Markarov — 5 each", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1975/76", winner:"Bayern Munich", runnerup:"AS Saint-Étienne", score:"Bayern Munich 1-0 AS Saint-Étienne", topScorer:"Jupp Heynckes — 6 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1976/77", winner:"Liverpool", runnerup:"Borussia Mönchengladbach", score:"Liverpool 3-1 Borussia Mönchengladbach", topScorer:"Gerd Müller & Franco Cucinotta — 5 each", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1977/78", winner:"Liverpool", runnerup:"Club Brugge", score:"Liverpool 1-0 Club Brugge", topScorer:"Allan Simonsen — 5 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1978/79", winner:"Nottingham Forest", runnerup:"Malmö FF", score:"Nottingham Forest 1-0 Malmö FF", topScorer:"Claudio Sulser — 11 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1979/80", winner:"Nottingham Forest", runnerup:"Hamburger SV", score:"Nottingham Forest 1-0 Hamburger SV", topScorer:"Søren Lerby — 10 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1980/81", winner:"Liverpool", runnerup:"Real Madrid", score:"Liverpool 1-0 Real Madrid", topScorer:"Terry McDermott, Graeme Souness & Karl-Heinz Rummenigge — 6 each", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1981/82", winner:"Aston Villa", runnerup:"Bayern Munich", score:"Aston Villa 1-0 Bayern Munich", topScorer:"Dieter Hoeneß — 7 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1982/83", winner:"Hamburger SV", runnerup:"Juventus", score:"Hamburger SV 1-0 Juventus", topScorer:"Paolo Rossi — 6 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1983/84", winner:"Liverpool", runnerup:"AS Roma", score:"Liverpool 1-1 AS Roma (aet); Liverpool won 4-2 on penalties", topScorer:"Viktor Sokol — 6 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1984/85", winner:"Juventus", runnerup:"Liverpool", score:"Juventus 1-0 Liverpool", topScorer:"Torbjörn Nilsson & Michel Platini — 7 each", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1985/86", winner:"Steaua București", runnerup:"FC Barcelona", score:"Steaua București 0-0 FC Barcelona (aet); Steaua București won 2-0 on penalties", topScorer:"Torbjörn Nilsson — 7 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1986/87", winner:"FC Porto", runnerup:"Bayern Munich", score:"FC Porto 2-1 Bayern Munich", topScorer:"Borislav Cvetković — 7 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1987/88", winner:"PSV Eindhoven", runnerup:"S.L. Benfica", score:"PSV Eindhoven 0-0 S.L. Benfica (aet); PSV Eindhoven won 6-5 on penalties", topScorer:"Gheorghe Hagi et al. — 4 each", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1988/89", winner:"AC Milan", runnerup:"Steaua București", score:"AC Milan 4-0 Steaua București", topScorer:"Marco van Basten — 10 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1989/90", winner:"AC Milan", runnerup:"S.L. Benfica", score:"AC Milan 1-0 S.L. Benfica", topScorer:"Romário & Jean-Pierre Papin — 6 each", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1990/91", winner:"Red Star Belgrade", runnerup:"Olympique de Marseille", score:"Red Star Belgrade 0-0 Olympique de Marseille (aet); Red Star Belgrade won 5-3 on penalties", topScorer:"Peter Pacult & Jean-Pierre Papin — 6 each", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1991/92", winner:"FC Barcelona", runnerup:"UC Sampdoria", score:"FC Barcelona 1-0 UC Sampdoria (aet)", topScorer:"Sergei Yuran & Jean-Pierre Papin — 7 each", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1992/93", winner:"Olympique de Marseille", runnerup:"AC Milan", score:"Olympique de Marseille 1-0 AC Milan", topScorer:"Franck Sauzée — 5 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1993/94", winner:"AC Milan", runnerup:"FC Barcelona", score:"AC Milan 4-0 FC Barcelona", topScorer:"Hristo Stoichkov — 5 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1994/95", winner:"Ajax", runnerup:"AC Milan", score:"Ajax 1-0 AC Milan", topScorer:"George Weah — 7 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1995/96", winner:"Juventus", runnerup:"Ajax", score:"Juventus 1-1 Ajax (aet); Juventus won 4-2 on penalties", topScorer:"Jari Litmanen — 9 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1996/97", winner:"Borussia Dortmund", runnerup:"Juventus", score:"Borussia Dortmund 3-1 Juventus", topScorer:"Milinko Pantić — 5 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1997/98", winner:"Real Madrid", runnerup:"Juventus", score:"Real Madrid 1-0 Juventus", topScorer:"Alessandro Del Piero — 10 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1998/99", winner:"Manchester United", runnerup:"Bayern Munich", score:"Manchester United 2-1 Bayern Munich", topScorer:"Andriy Shevchenko & Dwight Yorke — 8 each", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"1999/00", winner:"Real Madrid", runnerup:"Valencia CF", score:"Real Madrid 3-0 Valencia CF", topScorer:"Mário Jardel, Rivaldo & Raúl González — 10 each", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"2000/01", winner:"Bayern Munich", runnerup:"Valencia CF", score:"Bayern Munich 1-1 Valencia CF (aet); Bayern Munich won 5-4 on penalties", topScorer:"Raúl González — 7 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"2001/02", winner:"Real Madrid", runnerup:"Bayer 04 Leverkusen", score:"Real Madrid 2-1 Bayer 04 Leverkusen", topScorer:"Ruud van Nistelrooy — 10 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"2002/03", winner:"AC Milan", runnerup:"Juventus", score:"AC Milan 0-0 Juventus (aet); AC Milan won 3-2 on penalties", topScorer:"Ruud van Nistelrooy — 12 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"2003/04", winner:"FC Porto", runnerup:"AS Monaco", score:"FC Porto 3-0 AS Monaco", topScorer:"Fernando Morientes — 9 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"2004/05", winner:"Liverpool", runnerup:"AC Milan", score:"Liverpool 3-3 AC Milan (aet); Liverpool won 3-2 on penalties", topScorer:"Ruud van Nistelrooy — 8 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"2005/06", winner:"FC Barcelona", runnerup:"Arsenal", score:"FC Barcelona 2-1 Arsenal", topScorer:"Andriy Shevchenko — 9 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"2006/07", winner:"AC Milan", runnerup:"Liverpool", score:"AC Milan 2-1 Liverpool", topScorer:"Kaká — 10 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"2007/08", winner:"Manchester United", runnerup:"Chelsea", score:"Manchester United 1-1 Chelsea (aet); Manchester United won 6-5 on penalties", topScorer:"Cristiano Ronaldo — 8 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"2008/09", winner:"FC Barcelona", runnerup:"Manchester United", score:"FC Barcelona 2-0 Manchester United", topScorer:"Lionel Messi — 9 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"2009/10", winner:"Inter Milan", runnerup:"Bayern Munich", score:"Inter Milan 2-0 Bayern Munich", topScorer:"Lionel Messi — 8 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"2010/11", winner:"FC Barcelona", runnerup:"Manchester United", score:"FC Barcelona 3-1 Manchester United", topScorer:"Lionel Messi — 12 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"2011/12", winner:"Chelsea", runnerup:"Bayern Munich", score:"Chelsea 1-1 Bayern Munich (aet); Chelsea won 4-3 on penalties", topScorer:"Lionel Messi — 14 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"2012/13", winner:"Bayern Munich", runnerup:"Borussia Dortmund", score:"Bayern Munich 2-1 Borussia Dortmund", topScorer:"Cristiano Ronaldo — 12 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"2013/14", winner:"Real Madrid", runnerup:"Atlético Madrid", score:"Real Madrid 4-1 Atlético Madrid (aet)", topScorer:"Cristiano Ronaldo — 17 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"2014/15", winner:"FC Barcelona", runnerup:"Juventus", score:"FC Barcelona 3-1 Juventus", topScorer:"Messi, Neymar & Ronaldo — 10 each", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"2015/16", winner:"Real Madrid", runnerup:"Atlético Madrid", score:"Real Madrid 1-1 Atlético Madrid (aet); Real Madrid won 5-3 on penalties", topScorer:"Cristiano Ronaldo — 16 goals", playerOfYear:null, youngPlayer:null, goalkeeper:null, revelation:null, teamGK:null},
+            {season:"2016/17", winner:"Real Madrid", runnerup:"Juventus", score:"Real Madrid 4-1 Juventus", topScorer:"Cristiano Ronaldo — 12 goals", playerOfYear:null, youngPlayer:null, goalkeeper:"Gianluigi Buffon (Juventus)", revelation:null, teamGK:null},
+            {season:"2017/18", winner:"Real Madrid", runnerup:"Liverpool", score:"Real Madrid 3-1 Liverpool", topScorer:"Cristiano Ronaldo — 15 goals", playerOfYear:null, youngPlayer:null, goalkeeper:"Keylor Navas (Real Madrid)", revelation:null, teamGK:null},
+            {season:"2018/19", winner:"Liverpool", runnerup:"Tottenham Hotspur", score:"Liverpool 2-0 Tottenham Hotspur", topScorer:"Lionel Messi — 12 goals", playerOfYear:null, youngPlayer:null, goalkeeper:"Alisson Becker (Liverpool)", revelation:null, teamGK:null},
+            {season:"2019/20", winner:"Bayern Munich", runnerup:"Paris Saint-Germain", score:"Bayern Munich 1-0 Paris Saint-Germain", topScorer:"Robert Lewandowski — 15 goals", playerOfYear:null, youngPlayer:null, goalkeeper:"Manuel Neuer (Bayern Munich)", revelation:null, teamGK:null},
+            {season:"2020/21", winner:"Chelsea", runnerup:"Manchester City", score:"Chelsea 1-0 Manchester City", topScorer:"Erling Haaland — 10 goals", playerOfYear:null, youngPlayer:null, goalkeeper:"Édouard Mendy (Chelsea)", revelation:null, teamGK:null},
+            {season:"2021/22", winner:"Real Madrid", runnerup:"Liverpool", score:"Real Madrid 1-0 Liverpool", topScorer:"Karim Benzema — 15 goals", playerOfYear:"Karim Benzema (Real Madrid)", youngPlayer:"Vinícius Júnior (Real Madrid)", goalkeeper:null, revelation:null, teamGK:null},
+            {season:"2022/23", winner:"Manchester City", runnerup:"Inter Milan", score:"Manchester City 1-0 Inter Milan", topScorer:"Erling Haaland — 12 goals", playerOfYear:"Rodri (Manchester City)", youngPlayer:"Khvicha Kvaratskhelia (Napoli)", goalkeeper:null, revelation:null, teamGK:null},
+            {season:"2023/24", winner:"Real Madrid", runnerup:"Borussia Dortmund", score:"Real Madrid 2-0 Borussia Dortmund", topScorer:"Harry Kane & Kylian Mbappé — 8 each", playerOfYear:"Vinícius Júnior (Real Madrid)", youngPlayer:"Jude Bellingham (Real Madrid)", goalkeeper:null, revelation:null, teamGK:null},
+            {season:"2024/25", winner:"Paris Saint-Germain", runnerup:"Inter Milan", score:"Paris Saint-Germain 5-0 Inter Milan", topScorer:"Raphinha & Serhou Guirassy — 13 each", playerOfYear:"Ousmane Dembélé (Paris Saint-Germain)", youngPlayer:"Désiré Doué (Paris Saint-Germain)", goalkeeper:null, revelation:null, teamGK:null},
+            {season:"2025/26", winner:"Paris Saint-Germain", runnerup:"Arsenal", score:"Paris Saint-Germain 1-1 Arsenal (aet); Paris Saint-Germain won 4-3 on penalties", topScorer:"Kylian Mbappé (Real Madrid) — 15 goals", playerOfYear:"Khvicha Kvaratskhelia (Paris Saint-Germain)", youngPlayer:null, goalkeeper:null, revelation:"Arda Güler (Real Madrid)", teamGK:"David Raya (Arsenal)"},
         ];
 
         const uclTimeline = document.getElementById('uclTimeline');
@@ -1547,7 +1745,7 @@
             const btn = document.createElement('button');
             btn.className = 'ucl-yr-btn';
             btn.dataset.index = i;
-            btn.innerHTML = `${d.year}`;
+            btn.innerHTML = `${d.season}`;
             btn.addEventListener('click', () => selectUCLYear(i));
             uclTimeline.appendChild(btn);
         });
@@ -1564,21 +1762,24 @@
             uclTimeline.children[i].scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
 
             let rows = '';
+            rows += uclRow('Final Score', d.score);
             rows += uclRow('Golden Boot', d.topScorer);
             rows += uclRow('Player of the Season', d.playerOfYear || 'Not awarded', !d.playerOfYear);
             rows += uclRow('Young Player of the Season', d.youngPlayer || 'Not awarded', !d.youngPlayer);
             rows += uclRow('Goalkeeper of the Season', d.goalkeeper || 'Not awarded', !d.goalkeeper);
+            if (d.revelation) rows += uclRow('Revelation of the Season', d.revelation);
+            if (d.teamGK) rows += uclRow('Team of the Season Goalkeeper', d.teamGK);
 
             uclBoard.innerHTML = `
                 <div class="ucl-board-top">
-                    <div class="ucl-board-year">${d.year}</div>
+                    <div class="ucl-board-year">${d.season}</div>
                 </div>
                 <div class="ucl-podium">
                     <div class="ucl-podium-slot silver"><div class="ucl-medal">Runner-up</div><div class="ucl-podium-team">${d.runnerup}</div></div>
                     <div class="ucl-podium-slot gold"><div class="ucl-medal">Champion</div><div class="ucl-podium-team">${d.winner}</div></div>
                 </div>
                 <div class="ucl-stat-grid">${rows}</div>
-                <div class="ucl-board-foot">Champions League Final Tournament Record — ${d.year}</div>
+                <div class="ucl-board-foot">Champions League Final Tournament Record — ${d.season}</div>
             `;
 
             [...uclBoard.querySelectorAll('.ucl-stat-row')].forEach((el, idx) => {
@@ -1588,6 +1789,103 @@
 
         // open on the most recent year by default
         selectUCLYear(UCL_DATA.length - 1);
+
+        // ===== UCL SEARCH FUNCTIONALITY =====
+        function performUCLSearch() {
+            const searchInput = document.getElementById('uclSearchInput');
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            const searchResults = document.getElementById('uclSearchResults');
+
+            if (!searchTerm) {
+                searchResults.innerHTML = '<div class="ucl-no-results">Enter a season or team name to search...</div>';
+                return;
+            }
+
+            // normalize helper: strips punctuation/diacritics-ish noise and collapses spacing,
+            // and expands a few very common club nicknames/abbreviations so real-world searches
+            // like "psg", "man utd" or "barca" actually match the full club names below.
+            const ALIASES = {
+                "psg": "paris saint-germain",
+                "man utd": "manchester united",
+                "man united": "manchester united",
+                "man city": "manchester city",
+                "barca": "fc barcelona",
+                "barcelona": "fc barcelona",
+                "real": "real madrid",
+                "inter": "inter milan",
+                "bayern": "bayern munich",
+                "milan": "ac milan",
+                "juve": "juventus",
+                "dortmund": "borussia dortmund",
+                "atletico": "atlético madrid",
+                "atleti": "atlético madrid"
+            };
+
+            function normalize(str) {
+                return str.toLowerCase().trim();
+            }
+
+            const normalizedTerm = normalize(searchTerm);
+            const expandedTerm = ALIASES[normalizedTerm] || normalizedTerm;
+
+            const filtered = UCL_DATA.filter(d => {
+                const season = normalize(d.season);
+                const winner = normalize(d.winner);
+                const runnerup = normalize(d.runnerup);
+                return season.includes(normalizedTerm) ||
+                       winner.includes(normalizedTerm) ||
+                       runnerup.includes(normalizedTerm) ||
+                       winner.includes(expandedTerm) ||
+                       runnerup.includes(expandedTerm);
+            });
+
+            if (filtered.length === 0) {
+                searchResults.innerHTML = '<div class="ucl-no-results">No tournaments found. Try searching for a different season or team!</div>';
+                return;
+            }
+
+            searchResults.innerHTML = filtered.map((d) => `
+                <div class="ucl-result-card" onclick="selectUCLYear(${UCL_DATA.indexOf(d)})">
+                    <div class="ucl-result-year">${d.season}</div>
+                    <div class="ucl-result-info">
+                        <div class="ucl-result-row">
+                            <span class="ucl-result-label">🏆 Champion</span>
+                            <span class="ucl-result-value">${d.winner}</span>
+                        </div>
+                        <div class="ucl-result-row">
+                            <span class="ucl-result-label">🥈 Runner-up</span>
+                            <span class="ucl-result-value">${d.runnerup}</span>
+                        </div>
+                        <div class="ucl-result-row">
+                            <span class="ucl-result-label">⚽ Top Scorer</span>
+                            <span class="ucl-result-value">${d.topScorer}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Scroll to results
+            setTimeout(() => {
+                searchResults.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
+
+        function searchUCL() {
+            performUCLSearch();
+        }
+
+        // Live search as you type, same behaviour as the Ballon d'Or search box
+        document.getElementById('uclSearchInput').addEventListener('input', performUCLSearch);
+
+        // Allow search on Enter key
+        document.getElementById('uclSearchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performUCLSearch();
+            }
+        });
+
+        // Initialize search results with message
+        document.getElementById('uclSearchResults').innerHTML = '<div class="ucl-no-results">🔍 Enter a season or team name to search...</div>';
     </script>
 </body>
 </html>
