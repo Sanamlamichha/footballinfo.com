@@ -1279,9 +1279,123 @@
                 grid-template-columns: 1fr;
             }
         }
+    
+        /* ===== ROTATING SHINY CREATOR BAR ===== */
+        .creator-bar {
+            position: fixed;
+            left: 50%;
+            bottom: 18px;
+            transform: translateX(-50%) perspective(700px) rotateX(0deg);
+            z-index: 2000;
+            padding: 11px 28px;
+            border: 1px solid rgba(255, 215, 90, 0.65);
+            border-radius: 999px;
+            background:
+                linear-gradient(120deg,
+                    rgba(30, 24, 8, 0.92),
+                    rgba(212, 175, 55, 0.28),
+                    rgba(255, 248, 190, 0.18),
+                    rgba(212, 175, 55, 0.28),
+                    rgba(30, 24, 8, 0.92));
+            background-size: 250% 100%;
+            color: #fff4bd;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            box-shadow:
+                0 0 12px rgba(244, 211, 94, 0.45),
+                0 0 28px rgba(212, 175, 55, 0.25),
+                inset 0 0 12px rgba(255, 255, 255, 0.08);
+            overflow: hidden;
+            animation:
+                creatorRotate 5s ease-in-out infinite,
+                creatorShine 2.8s linear infinite,
+                creatorGlow 2s ease-in-out infinite;
+            backdrop-filter: blur(8px);
+        }
+
+        .creator-bar::before {
+            content: '';
+            position: absolute;
+            top: -80%;
+            left: -45%;
+            width: 35%;
+            height: 260%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255,255,255,0.9),
+                transparent
+            );
+            transform: skewX(-20deg);
+            animation: creatorSweep 2.4s linear infinite;
+            pointer-events: none;
+        }
+
+        .creator-bar span {
+            position: relative;
+            z-index: 1;
+            text-shadow:
+                0 0 5px rgba(255,255,255,0.55),
+                0 0 14px rgba(244,211,94,0.8);
+        }
+
+        @keyframes creatorRotate {
+            0%, 100% {
+                transform: translateX(-50%) perspective(700px) rotateY(-5deg) rotateX(1deg);
+            }
+            50% {
+                transform: translateX(-50%) perspective(700px) rotateY(5deg) rotateX(-1deg);
+            }
+        }
+
+        @keyframes creatorShine {
+            0% { background-position: 100% 50%; }
+            100% { background-position: -150% 50%; }
+        }
+
+        @keyframes creatorSweep {
+            0% { left: -45%; }
+            100% { left: 125%; }
+        }
+
+        @keyframes creatorGlow {
+            0%, 100% {
+                box-shadow:
+                    0 0 12px rgba(244, 211, 94, 0.4),
+                    0 0 28px rgba(212, 175, 55, 0.22),
+                    inset 0 0 12px rgba(255,255,255,0.08);
+            }
+            50% {
+                box-shadow:
+                    0 0 20px rgba(244, 211, 94, 0.75),
+                    0 0 45px rgba(212, 175, 55, 0.38),
+                    inset 0 0 18px rgba(255,255,255,0.14);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .creator-bar {
+                bottom: 10px;
+                padding: 9px 18px;
+                font-size: 0.72rem;
+                letter-spacing: 1px;
+                max-width: calc(100vw - 24px);
+            }
+        }
+
     </style>
 </head>
 <body>
+
+    <!-- Rotating shiny creator credit -->
+    <div class="creator-bar" aria-label="Created by Sanam Lamichhane">
+        <span>Created by Sanam Lamichhane</span>
+    </div>
+
     <!-- Navigation -->
     <nav>
         <button class="nav-btn active" onclick="showPage('home')">🏠 Home</button>
