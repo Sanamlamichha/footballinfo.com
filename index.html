@@ -44,9 +44,12 @@
             backdrop-filter: blur(10px);
             padding: 15px 20px;
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
-            gap: 30px;
+            gap: 10px;
+            overflow-x: auto;
+            white-space: nowrap;
+            scrollbar-width: thin;
             z-index: 1000;
             border-bottom: 2px solid rgba(212, 175, 55, 0.2);
         }
@@ -1387,7 +1390,10 @@
             }
         }
 
-    </style>
+    
+        /* ===== EXPANDED FOOTBALL INFO SECTIONS ===== */
+        .extra-page{padding:35px 20px 100px;background:radial-gradient(ellipse 900px 500px at 50% 0%,rgba(212,175,55,.12),transparent 65%),#0a0a0d}.extra-header{text-align:center;margin-bottom:28px}.extra-header h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,6vw,4rem);color:var(--gold-bright);margin-bottom:10px}.extra-header p{color:#b9b1a0;max-width:720px;margin:auto;line-height:1.6}.data-tools{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:25px auto;max-width:1050px}.data-tools input{padding:13px 17px;border-radius:999px;border:1px solid rgba(212,175,55,.35);background:#17151b;color:var(--cream);min-width:240px}.data-tools input:focus{outline:none;border-color:var(--gold-bright);box-shadow:0 0 0 3px rgba(212,175,55,.12)}.data-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;max-width:1100px;margin:auto}.data-card{background:linear-gradient(145deg,#1d1a21,#121116);border:1px solid rgba(212,175,55,.22);border-top:3px solid var(--gold);border-radius:15px;padding:22px;transition:.3s}.data-card:hover{transform:translateY(-5px);border-color:var(--gold-bright);box-shadow:0 15px 35px rgba(212,175,55,.12)}.data-card .big-icon{font-size:2.5rem;margin-bottom:12px}.data-card h3{color:var(--gold-bright);font-family:'Playfair Display',serif;font-size:1.45rem;margin-bottom:8px}.data-card p{color:#c7c0b1;line-height:1.55;font-size:.93rem}.data-card .meta{margin-top:14px;display:flex;flex-wrap:wrap;gap:7px}.tag{padding:5px 9px;border-radius:999px;background:rgba(212,175,55,.1);color:#e7c95e;font-size:.75rem}.record-list{max-width:1050px;margin:auto;display:grid;gap:10px}.record-row{display:grid;grid-template-columns:55px 1.2fr 1fr 1fr;gap:10px;align-items:center;padding:15px 16px;background:#17151b;border:1px solid rgba(212,175,55,.15);border-radius:10px}.record-row strong{color:var(--gold-bright)}.record-row span{color:#d8d0c1}.record-num{color:#7e7565!important;font-family:'JetBrains Mono',monospace}.home-extra{margin-top:35px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}.home-extra .section-card{padding:28px 20px}.home-extra .section-card h2{font-size:1.45rem}@media(max-width:700px){.record-row{grid-template-columns:35px 1fr}.record-row span:nth-child(3),.record-row span:nth-child(4){grid-column:2}nav{justify-content:flex-start}}
+    .data-card.data-link{display:block;color:inherit;text-decoration:none;cursor:pointer}.data-card.data-link:hover{text-decoration:none}.external-label{display:inline-block;margin-top:14px;color:var(--gold-bright);font-size:.78em;font-weight:700;letter-spacing:.6px;text-transform:uppercase}</style>
 </head>
 <body>
 
@@ -1402,6 +1408,7 @@
         <button class="nav-btn" onclick="showPage('ballon')">⚽ Ballon d'Or</button>
         <button class="nav-btn" onclick="showPage('worldcup')">🏆 World Cup</button>
         <button class="nav-btn" onclick="showPage('ucl')">👑 UEFA Champions League</button>
+        <button class="nav-btn" onclick="showPage('players')">👤 Players</button><button class="nav-btn" onclick="showPage('clubs')">🏟️ Clubs</button><button class="nav-btn" onclick="showPage('leagues')">🌍 Leagues</button><button class="nav-btn" onclick="showPage('records')">📊 Records</button><button class="nav-btn" onclick="showPage('tournaments')">🏅 Tournaments</button><button class="nav-btn" onclick="showPage('legends')">🐐 Legends</button><button class="nav-btn" onclick="showPage('nepal')">🇳🇵 Nepal</button><button class="nav-btn" onclick="showPage('news')">📰 News</button>
     </nav>
 
     <!-- HOME PAGE -->
@@ -1433,6 +1440,16 @@
             </div>
         </div>
     </div>
+
+    <!-- EXPANDED FOOTBALL PAGES -->
+    <div id="players" class="page content-page extra-page"><div class="container"><div class="extra-header"><h1>👤 Player Database</h1><p>Search football stars and explore a compact career profile.</p></div><div class="data-tools"><input id="playerSearch" placeholder="Search player, club or country..." oninput="renderPlayers()"></div><div id="playerGrid" class="data-grid"></div></div></div>
+    <div id="clubs" class="page content-page extra-page"><div class="container"><div class="extra-header"><h1>🏟️ Club Database</h1><p>Explore major clubs, stadiums, countries and historical achievements.</p></div><div class="data-tools"><input id="clubSearch" placeholder="Search club or country..." oninput="renderClubs()"></div><div id="clubGrid" class="data-grid"></div></div></div>
+    <div id="leagues" class="page content-page extra-page"><div class="container"><div class="extra-header"><h1>🌍 Football Leagues</h1><p>Major domestic competitions and the clubs that have shaped them.</p></div><div class="data-tools"><input id="leagueSearch" placeholder="Search league or country..." oninput="renderLeagues()"></div><div id="leagueGrid" class="data-grid"></div></div></div>
+    <div id="records" class="page content-page extra-page"><div class="container"><div class="extra-header"><h1>📊 Football Records</h1><p>Notable records across international and club football.</p></div><div class="data-tools"><input id="recordSearch" placeholder="Search record..." oninput="renderRecords()"></div><div id="recordGrid" class="record-list"></div></div></div>
+    <div id="tournaments" class="page content-page extra-page"><div class="container"><div class="extra-header"><h1>🏅 Major Tournaments</h1><p>International and club competitions from around the football world.</p></div><div id="tournamentGrid" class="data-grid"></div></div></div>
+    <div id="legends" class="page content-page extra-page"><div class="container"><div class="extra-header"><h1>🐐 Football Legends</h1><p>Iconic players and the eras in which they made their mark.</p></div><div class="data-tools"><input id="legendSearch" placeholder="Search legend..." oninput="renderLegends()"></div><div id="legendGrid" class="data-grid"></div></div></div>
+    <div id="nepal" class="page content-page extra-page"><div class="container"><div class="extra-header"><h1>🇳🇵 Nepal Football</h1><p>A dedicated section for Nepal's national-team history, regional competitions and football development.</p></div><div id="nepalGrid" class="data-grid"></div></div></div>
+    <div id="news" class="page content-page extra-page"><div class="container"><div class="extra-header"><h1>📰 Football News</h1><p>News categories are built in here. Connect a news API later for automatic live updates.</p></div><div id="newsGrid" class="data-grid"></div></div></div>
 
     <!-- BALLON D'OR PAGE -->
     <div id="ballon" class="page content-page ballon-page">
@@ -1522,7 +1539,8 @@
             document.querySelectorAll('.nav-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
-            event.target.classList.add('active');
+            const clickedNav = event && event.target && event.target.closest ? event.target.closest('.nav-btn') : null;
+            if (clickedNav) clickedNav.classList.add('active');
 
             // Scroll to top
             window.scrollTo(0, 0);
@@ -2000,6 +2018,169 @@
 
         // Initialize search results with message
         document.getElementById('uclSearchResults').innerHTML = '<div class="ucl-no-results">🔍 Enter a season or team name to search...</div>';
+    
+        // ===== EXPANDED FOOTBALL DATABASE =====
+        const PLAYER_DATA=[
+          {n:'Cristiano Ronaldo',c:'Portugal',p:'Forward',club:'Al-Nassr',t:'UEFA Champions League, Ballon d’Or, European Championship',u:'https://en.wikipedia.org/wiki/Cristiano_Ronaldo'},
+          {n:'Lionel Messi',c:'Argentina',p:'Forward',club:'Inter Miami',t:'World Cup, Copa América, Ballon d’Or, UEFA Champions League',u:'https://en.wikipedia.org/wiki/Lionel_Messi'},
+          {n:'Kylian Mbappé',c:'France',p:'Forward',club:'Real Madrid',t:'World Cup, Ligue 1, domestic cups',u:'https://en.wikipedia.org/wiki/Kylian_Mbapp%C3%A9'},
+          {n:'Erling Haaland',c:'Norway',p:'Forward',club:'Manchester City',t:'Premier League, UEFA Champions League, domestic cups',u:'https://en.wikipedia.org/wiki/Erling_Haaland'},
+          {n:'Neymar',c:'Brazil',p:'Forward',club:'Santos',t:'Copa Libertadores, Copa del Rey, Olympic gold',u:'https://en.wikipedia.org/wiki/Neymar'},
+          {n:'Luka Modrić',c:'Croatia',p:'Midfielder',club:'Real Madrid',t:'UEFA Champions League, Ballon d’Or, World Cup runner-up',u:'https://en.wikipedia.org/wiki/Luka_Modri%C4%87'},
+          {n:'Zinedine Zidane',c:'France',p:'Midfielder',club:'Retired',t:'World Cup, European Championship, UEFA Champions League',u:'https://en.wikipedia.org/wiki/Zinedine_Zidane'},
+          {n:'Ronaldinho',c:'Brazil',p:'Forward / Midfielder',club:'Retired',t:'World Cup, Copa América, UEFA Champions League, Ballon d’Or',u:'https://en.wikipedia.org/wiki/Ronaldinho'},
+          {n:'Pelé',c:'Brazil',p:'Forward',club:'Retired',t:'Three FIFA World Cups',u:'https://en.wikipedia.org/wiki/Pel%C3%A9'},
+          {n:'Diego Maradona',c:'Argentina',p:'Forward / Midfielder',club:'Retired',t:'FIFA World Cup',u:'https://en.wikipedia.org/wiki/Diego_Maradona'}
+        ];
+        const CLUB_DATA=[
+          {n:'Real Madrid',country:'Spain',stadium:'Santiago Bernabéu',t:'UEFA Champions League, La Liga, Copa del Rey',u:'https://www.realmadrid.com/en-US'},
+          {n:'FC Barcelona',country:'Spain',stadium:'Spotify Camp Nou',t:'La Liga, UEFA Champions League, Copa del Rey',u:'https://www.fcbarcelona.com/en/'},
+          {n:'Manchester United',country:'England',stadium:'Old Trafford',t:'Premier League, European Cup/Champions League, FA Cup',u:'https://www.manutd.com/'},
+          {n:'Manchester City',country:'England',stadium:'Etihad Stadium',t:'Premier League, UEFA Champions League, FA Cup',u:'https://www.mancity.com/'},
+          {n:'Liverpool',country:'England',stadium:'Anfield',t:'Premier League, European Cup/Champions League, FA Cup',u:'https://www.liverpoolfc.com/'},
+          {n:'Bayern Munich',country:'Germany',stadium:'Allianz Arena',t:'Bundesliga, UEFA Champions League, DFB-Pokal',u:'https://fcbayern.com/en'},
+          {n:'AC Milan',country:'Italy',stadium:'San Siro',t:'Serie A, European Cup/Champions League',u:'https://www.acmilan.com/en'},
+          {n:'Juventus',country:'Italy',stadium:'Allianz Stadium',t:'Serie A, Coppa Italia, European Cup',u:'https://www.juventus.com/en/'},
+          {n:'Paris Saint-Germain',country:'France',stadium:'Parc des Princes',t:'Ligue 1, Coupe de France, domestic trophies',u:'https://en.psg.fr/'},
+          {n:'Al-Nassr',country:'Saudi Arabia',stadium:'Al-Awwal Park',t:'Saudi domestic honours',u:'https://alnassr.sa/'}
+        ];
+        const LEAGUE_DATA=[
+          {n:'Premier League',country:'England',icon:'🏴',info:'Top level of English football. Known for 20 clubs, promotion and relegation.',u:'https://www.premierleague.com/'},
+          {n:'La Liga',country:'Spain',icon:'🇪🇸',info:'Spain’s top division, featuring historic clubs such as Real Madrid and Barcelona.',u:'https://www.laliga.com/en-GB'},
+          {n:'Serie A',country:'Italy',icon:'🇮🇹',info:'Italy’s top division, famous for tactical football and historic clubs.',u:'https://www.legaseriea.it/en'},
+          {n:'Bundesliga',country:'Germany',icon:'🇩🇪',info:'Germany’s top division, known for strong club academies and high attendances.',u:'https://www.bundesliga.com/en/bundesliga'},
+          {n:'Ligue 1',country:'France',icon:'🇫🇷',info:'France’s top division, with a strong record of developing young players.',u:'https://ligue1.com/'},
+          {n:'Eredivisie',country:'Netherlands',icon:'🇳🇱',info:'The Netherlands’ top division, historically associated with technical football.',u:'https://eredivisie.eu/'},
+          {n:'Primeira Liga',country:'Portugal',icon:'🇵🇹',info:'Portugal’s top division, home to several historic European clubs.',u:'https://www.ligaportugal.pt/en/'},
+          {n:'Saudi Pro League',country:'Saudi Arabia',icon:'🇸🇦',info:'Saudi Arabia’s top division and one of the fastest-growing football leagues.',u:'https://www.spl.com.sa/'}
+        ];
+        const RECORD_DATA=[
+['Ballon d’Or wins','Lionel Messi','Argentina','8 awards'],
+['Ballon d’Or nominations','Cristiano Ronaldo','Portugal','18 nominations'],
+['Ballon d’Or nominations','Lionel Messi','Argentina','17 nominations'],
+['Ballon d’Or nominations','Paolo Maldini','Italy','13 nominations'],
+['Ballon d’Or podium finishes','Cristiano Ronaldo','Portugal','12 podium finishes'],
+['International goals','Cristiano Ronaldo','Portugal','146 goals'],
+['International appearances','Cristiano Ronaldo','Portugal','233 appearances'],
+['International goals','Lionel Messi','Argentina','125 goals'],
+['International appearances','Lionel Messi','Argentina','207 appearances'],
+['World Cup editions scored in','Cristiano Ronaldo','Portugal','6 editions'],
+['World Cup goals','Miroslav Klose','Germany','16 goals'],
+['World Cup matches played','Lionel Messi','Argentina','26 matches'],
+['World Cup individual appearances','Lionel Messi','Argentina','34 appearances'],
+['World Cup Golden Balls','Lionel Messi','Argentina','2 awards'],
+['World Cup titles','Brazil','Brazil','5 titles'],
+['World Cup goals in one tournament','Just Fontaine','France','13 goals in 1958'],
+['Fastest World Cup goal','Hakan Şükür','Turkey','11 seconds'],
+['Youngest World Cup scorer','Pelé','Brazil','17 years, 239 days'],
+['Oldest World Cup scorer','Cristiano Ronaldo','Portugal','41 years, 121 days'],
+['Most FIFA World Cup editions played by a team','Brazil','Brazil','Every edition through 2026'],
+['UEFA Champions League goals','Cristiano Ronaldo','Portugal','140 goals'],
+['UEFA Champions League goals','Lionel Messi','Argentina','129 goals'],
+['UEFA Champions League goals','Robert Lewandowski','Poland','109 goals'],
+['UEFA Champions League appearances','Cristiano Ronaldo','Portugal','183 appearances'],
+['UEFA club competition appearances','Cristiano Ronaldo','Portugal','197 appearances'],
+['Most UCL goals in a single season','Cristiano Ronaldo','Real Madrid','17 goals in 2013–14'],
+['Most goals in a Champions League quarter-final match','Lionel Messi','Barcelona','4 goals'],
+['Most goals in a Champions League knockout-phase game','Lionel Messi / Erling Haaland','Barcelona / Manchester City','5 goals'],
+['Most Champions League round-of-16 goals','Lionel Messi','Barcelona','29 goals'],
+['Most Champions League goals for one club','Lionel Messi','Barcelona','120 goals'],
+['Most consecutive seasons scoring in UCL','Lionel Messi / Karim Benzema','Barcelona / Real Madrid','18 seasons'],
+['Most Champions League final goals','Cristiano Ronaldo','Manchester United / Real Madrid','4 goals'],
+['Most European Cup / Champions League titles as a player','Francisco Gento','Real Madrid','6 titles'],
+['Most UEFA Champions League titles by a club','Real Madrid','Spain','15 titles'],
+['Most European Cup titles by a manager','Carlo Ancelotti','AC Milan / Real Madrid','5 titles'],
+['Most La Liga goals','Lionel Messi','Barcelona','474 goals'],
+['Most La Liga goals in one season','Lionel Messi','Barcelona','50 goals in 2011–12'],
+['Most La Liga hat-tricks','Lionel Messi','Barcelona','36 hat-tricks'],
+['Longest La Liga goalscoring streak','Lionel Messi','Barcelona','21 consecutive matches'],
+['Most Premier League goals in one season','Erling Haaland','Manchester City','36 goals in 2022–23'],
+['Most Premier League hat-tricks','Sergio Agüero','Manchester City','12 hat-tricks'],
+['Most consecutive Premier League appearances with a goal','Jamie Vardy','Leicester City','11 matches'],
+['Most Premier League titles','Manchester United','England','13 titles'],
+['Most Serie A titles','Juventus','Italy','36 titles'],
+['Most Bundesliga titles','Bayern Munich','Germany','34 titles'],
+['Most UEFA European Championship titles','Spain','Spain','4 titles'],
+['Most Copa América titles','Uruguay','Uruguay','15 titles'],
+['Most AFC Asian Cup titles','Japan','Japan','4 titles'],
+['Most Africa Cup of Nations titles','Egypt','Egypt','7 titles'],
+['Most FIFA Club World Cup titles','Real Madrid','Spain','5 titles'],
+['Most goals in a calendar year','Lionel Messi','Barcelona / Argentina','91 goals in 2012'],
+['Most Ballon d’Or awards','Lionel Messi','Argentina','8 awards'],
+['Most ESM Golden Shoes','Lionel Messi','Barcelona','6 awards'],
+['Most Argentina caps','Lionel Messi','Argentina','207 caps'],
+['Most Argentina goals','Lionel Messi','Argentina','125 goals'],
+['Most World Cup match wins','Lionel Messi','Argentina','23 wins'],
+['Most World Cup goals by a player from Germany','Miroslav Klose','Germany','16 goals'],
+['Only player to score in six World Cup editions','Cristiano Ronaldo','Portugal','6 editions'],
+['International goals scored in 23 consecutive years','Cristiano Ronaldo','Portugal','23 consecutive years'],
+['Most senior international goals by a male player','Cristiano Ronaldo','Portugal','146 goals'],
+['Most senior international appearances by a male player','Cristiano Ronaldo','Portugal','233 appearances'],
+['Most UCL top-scorer finishes in a row era','Cristiano Ronaldo / Lionel Messi','Real Madrid / Barcelona','12 consecutive seasons shared dominance'],
+['Most goals for one national team among active male players','Cristiano Ronaldo','Portugal','146 goals'],
+['Most World Cup finals goals','Kylian Mbappé','France','4 goals'],
+['Most goals in a World Cup final match','Geoff Hurst / Kylian Mbappé','England / France','3 goals'],
+['Most World Cup Golden Boot goals in one edition','Just Fontaine','France','13 goals'],
+['Most goals in a single Premier League match','Erling Haaland','Manchester City','5 goals'],
+['Most goals in a Champions League season','Cristiano Ronaldo','Real Madrid','17 goals in 2013–14'],
+['Most Champions League hat-tricks','Cristiano Ronaldo / Lionel Messi','Real Madrid / Barcelona','8 each'],
+['Most goals in UEFA club competitions','Cristiano Ronaldo','Portugal','145 goals'],
+['Most UEFA club competition appearances','Cristiano Ronaldo','Portugal','197 appearances'],
+['Most goals in a Champions League round-of-16 tie','Lionel Messi','Barcelona','6 goals'],
+['Most goals before age 30 in Champions League','Lionel Messi / Cristiano Ronaldo','Barcelona / Real Madrid','94 / 95 goals respectively'],
+['Most World Cup appearances by a player','Lionel Messi','Argentina','26 matches'],
+['Most World Cup starts','Lionel Messi','Argentina','26 starts'],
+['Most World Cup player-of-the-match awards','Lionel Messi','Argentina','11 awards']
+];
+        const TOURNAMENT_DATA=[
+          {i:'🌎',n:'FIFA World Cup',d:'The premier men’s international football tournament, held every four years.',u:'https://www.fifa.com/en/tournaments/mens/worldcup'},
+          {i:'🇪🇺',n:'UEFA European Championship',d:'Europe’s national-team championship.',u:'https://www.uefa.com/euro/'},
+          {i:'🌎',n:'Copa América',d:'South America’s major national-team competition.',u:'https://copaamerica.com/en/'},
+          {i:'🌍',n:'Africa Cup of Nations',d:'Africa’s flagship men’s national-team tournament.',u:'https://www.cafonline.com/africa-cup-of-nations/'},
+          {i:'🌏',n:'AFC Asian Cup',d:'Asia’s major national-team football championship.',u:'https://www.the-afc.com/en/national/afc_asian_cup.html'},
+          {i:'👑',n:'UEFA Champions League',d:'Europe’s leading annual club competition.',u:'https://www.uefa.com/uefachampionsleague/'},
+          {i:'🏆',n:'UEFA Europa League',d:'UEFA’s second-tier men’s club competition.',u:'https://www.uefa.com/uefaeuropaleague/'},
+          {i:'🌐',n:'FIFA Club World Cup',d:'A global club competition bringing champions from different confederations together.',u:'https://www.fifa.com/en/tournaments/mens/club-world-cup'}
+        ];
+        const LEGEND_DATA=[
+          {n:'Pelé',e:'1950s–1970s',c:'Brazil',d:'Three-time World Cup winner and one of football’s most celebrated historical figures.'},
+          {n:'Diego Maradona',e:'1970s–1990s',c:'Argentina',d:'World Cup winner and a defining player of his generation.'},
+          {n:'Johan Cruyff',e:'1960s–1980s',c:'Netherlands',d:'A central figure in Total Football and an influential football thinker.'},
+          {n:'Franz Beckenbauer',e:'1960s–1980s',c:'Germany',d:'World Cup-winning defender and influential sweeper.'},
+          {n:'Zinedine Zidane',e:'1990s–2000s',c:'France',d:'World Cup and European Championship winner with an illustrious club career.'},
+          {n:'Ronaldo Nazário',e:'1990s–2010s',c:'Brazil',d:'Two-time Ballon d’Or winner and two-time World Cup winner.'},
+          {n:'Ronaldinho',e:'1990s–2010s',c:'Brazil',d:'World Cup winner and Ballon d’Or winner renowned for creative attacking play.'},
+          {n:'Cristiano Ronaldo',e:'2000s–present',c:'Portugal',d:'One of the most prolific goalscorers in international and European club football.'},
+          {n:'Lionel Messi',e:'2000s–present',c:'Argentina',d:'World Cup winner and record Ballon d’Or winner.'}
+        ];
+        const NEPAL_DATA=[
+          {i:'🇳🇵',n:'Nepal National Team',d:'Nepal’s senior men’s national football team represents the country in international competition.'},
+          {i:'🏆',n:'SAFF Championship',d:'Nepal competes in the South Asian regional championship and has reached the final.'},
+          {i:'🌏',n:'AFC Competitions',d:'Nepal participates in Asian Football Confederation competitions and qualification pathways.'},
+          {i:'⚽',n:'ANFA',d:'The All Nepal Football Association is the governing body for football in Nepal.'},
+          {i:'🏟️',n:'Dasharath Stadium',d:'A major football venue in Kathmandu and an important home ground for Nepal football.'},
+          {i:'⭐',n:'Notable Players',d:'Nepal has produced international players including Rohit Chand, Kiran Chemjong, Anjan Bista and Bimal Gharti Magar.'},
+          {i:'👧',n:'Women’s Football',d:'Nepal’s women’s national team is an important part of the country’s football development.'},
+          {i:'🌱',n:'Grassroots Football',d:'Youth academies, schools and local competitions are important for developing future players.'}
+        ];
+        const NEWS_DATA=[
+          {i:'🔄',n:'Transfers',d:'Track confirmed transfers, loans, free-agent moves and major transfer-window stories.',tag:'Transfer News'},
+          {i:'⚽',n:'Match Reports',d:'Add results, scorers, cards, line-ups and key moments after matches.',tag:'Matches'},
+          {i:'🏆',n:'Competition Updates',d:'Cover league races, knockout rounds, finals and tournament milestones.',tag:'Competitions'},
+          {i:'👤',n:'Player Updates',d:'Follow player milestones, records, injuries only when officially reported, and career moves.',tag:'Players'},
+          {i:'🧠',n:'Tactics & Analysis',d:'Explain formations, tactical changes, pressing, possession and set pieces.',tag:'Analysis'},
+          {i:'🌍',n:'International Football',d:'Cover national-team fixtures, qualifying campaigns and major tournaments.',tag:'International'}
+        ];
+        function card(x){const inner=`<div class="big-icon">${x.i||'⚽'}</div><h3>${x.n}</h3><p>${x.d||''}</p>${x.meta?`<div class="meta">${x.meta.map(m=>`<span class="tag">${m}</span>`).join('')}</div>`:''}${x.u?`<span class="external-label">↗ Open official / reference page</span>`:''}`;return x.u?`<a class="data-card data-link" href="${x.u}" target="_blank" rel="noopener noreferrer" title="Open ${x.n}">${inner}</a>`:`<div class="data-card">${inner}</div>`}
+function renderPlayers(){const q=(document.getElementById('playerSearch')?.value||'').toLowerCase();document.getElementById('playerGrid').innerHTML=PLAYER_DATA.filter(x=>(x.n+x.c+x.club+x.p).toLowerCase().includes(q)).map(x=>card({i:'👤',n:x.n,d:`${x.p} • ${x.c}<br><br><strong>Club:</strong> ${x.club}<br><strong>Major honours:</strong> ${x.t}`,meta:[x.p,x.c],u:x.u})).join('')||'<p>No players found.</p>'}
+function renderClubs(){const q=(document.getElementById('clubSearch')?.value||'').toLowerCase();document.getElementById('clubGrid').innerHTML=CLUB_DATA.filter(x=>(x.n+x.country+x.stadium).toLowerCase().includes(q)).map(x=>card({i:'🏟️',n:x.n,d:`${x.country}<br><br><strong>Stadium:</strong> ${x.stadium}<br><strong>Major honours:</strong> ${x.t}`,meta:[x.country],u:x.u})).join('')||'<p>No clubs found.</p>'}
+function renderLeagues(){const q=(document.getElementById('leagueSearch')?.value||'').toLowerCase();document.getElementById('leagueGrid').innerHTML=LEAGUE_DATA.filter(x=>(x.n+x.country+x.info).toLowerCase().includes(q)).map(x=>card({i:x.icon,n:x.n,d:`${x.country}<br><br>${x.info}`,meta:[x.country],u:x.u})).join('')||'<p>No leagues found.</p>'}
+function renderRecords(){const q=(document.getElementById('recordSearch')?.value||'').toLowerCase();document.getElementById('recordGrid').innerHTML=RECORD_DATA.filter(x=>x.join(' ').toLowerCase().includes(q)).map((x,i)=>`<div class="record-row"><span class="record-num">${String(i+1).padStart(2,'0')}</span><strong>${x[0]}</strong><span>${x[1]}</span><span>${x[2]} • ${x[3]}</span></div>`).join('')||'<p>No records found.</p>'}
+function renderLegends(){const q=(document.getElementById('legendSearch')?.value||'').toLowerCase();document.getElementById('legendGrid').innerHTML=LEGEND_DATA.filter(x=>(x.n+x.e+x.c+x.d).toLowerCase().includes(q)).map(x=>card({i:'🐐',n:x.n,d:`${x.c} • ${x.e}<br><br>${x.d}`,meta:[x.c,x.e],u:x.u})).join('')||'<p>No legends found.</p>'}
+function renderTournaments(){document.getElementById('tournamentGrid').innerHTML=TOURNAMENT_DATA.map(x=>card(x)).join('')}
+function renderNepal(){document.getElementById('nepalGrid').innerHTML=NEPAL_DATA.map(x=>card(x)).join('')}
+function renderNews(){document.getElementById('newsGrid').innerHTML=NEWS_DATA.map(x=>card({i:x.i,n:x.n,d:x.d,meta:[x.tag]})).join('')}
+renderPlayers();renderClubs();renderLeagues();renderRecords();renderLegends();renderTournaments();renderNepal();renderNews();
     </script>
 </body>
 </html>
